@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
+html,
+body,
+header,
+#app,
+.body-box {
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+font-family: 'Open Sans', sans-serif;}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Op;
+  background-color: #f4f4f4;
+  font-size: 100%;
+  color: #242729;
+  display: block;
+}
+
+.body-box {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.page-body {
+  padding-top: 130px;
+}
+
+a {
+  text-decoration-style: none !important;
+}
+
+a:hover {
+  text-decoration-style: none !important;
+}

@@ -1,0 +1,15 @@
+#left-bar{
+  width: 16px;
+  height: 51px;
+  background-color: #8D4F39;
+  float: left;
+}
+
+#right-content{
+  float: left;
+  padding-left: 5px;
+  padding-top: 5px;
+  font-size: 1em;
+  font-weight: 600;
+  color: #000000;
+}
