@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 
 import Logo from '../Logo';
 import Avatar from '../Avatar';
-import './Navigate.css';
+import './navigate.css';
 
 const renderNavigation = () => {
   return (
-    <div>
+    <div id="header">
       <header>
         <div id="navigation-bar">
           <div id="top-logo">
@@ -40,7 +40,7 @@ const renderNavigation = () => {
             </div>
           </div>
           <div>
-            <Avatar />
+           
           </div>
         </div>
       </header>

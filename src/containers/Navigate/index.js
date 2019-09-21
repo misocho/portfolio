@@ -9,7 +9,7 @@ export class NavigateContainer extends Component {
         <Navigate />
       </>
     );
-  }''
+  }
 }
 
 export default NavigateContainer;

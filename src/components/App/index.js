@@ -3,11 +3,11 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import { routes, AppRoute }  from '../../routes';
 import AppContainer from '../AppContianer';
 
-function App() {
+const App = (props) => {
   return (
     <div className="App">
       <BrowserRouter>
-        <AppContainer>
+        <AppContainer {...props}>
           <Switch>
             {routes.map(( { exact, path, component }) => {
               return (

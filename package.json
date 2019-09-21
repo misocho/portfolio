@@ -4,7 +4,6 @@
   "description": "This is my personal portfolio",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
     "dev": "webpack-dev-server --mode development --open --hot --inline",
     "build": "webpack --mode production"
@@ -33,6 +32,8 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "@svgr/cli": "^4.3.2",
+    "@svgr/webpack": "^4.3.2",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-import": "^1.12.1",

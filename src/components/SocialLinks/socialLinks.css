@@ -1,0 +1,52 @@
+#social-links-wrapper {
+  display: inline-block;
+  left: 0;
+  top: 40%;
+  position: fixed;
+}
+
+ul {
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+}
+
+.social-svg {
+  fill: #8D4F39;
+  transition: all .2s ease-in-out;
+}
+
+.social-svg:hover {
+ transform: scale(1.5);
+ cursor: pointer;
+}
+
+#email-svg {
+  width: 45px;
+  height: 29.46px;
+}
+
+li {
+  padding: 5px;
+  margin: auto;
+}
+
+#resume-svg {
+  width: 40px;
+  height: 40px;
+}
+
+#dribbble-svg {
+  width: 30px;
+  height: 30px;
+}
+
+label[for="github-svg"]:hover:not(:focus)::after {
+    content: "Tooltip Message";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid;
+    background: white;
+}
