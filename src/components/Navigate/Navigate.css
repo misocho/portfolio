@@ -10,6 +10,7 @@ li {
   z-index: 1;
   top: 0;
   left: 0;
+  background: #F6F7FB;
 }
 
 #top-logo {
@@ -67,5 +68,5 @@ nav ul li a:hover {
 #nav-line {
   height: 20px;
   border-top: 1px solid #707070;
-  margin: 18px 5% 0 5%;
+  margin: 12px 5% 0 5%;
 }

@@ -1,0 +1,26 @@
+#intro-section{
+  margin-top: 15%;
+  width: 100%;
+  text-align: center;
+}
+
+.intro-name {
+  font-weight: 600;
+  font-size: 2em;
+}
+
+.intro-role {
+  display: inline-block;
+  padding: 15px 15px 10px 15px;
+  color: #707070;
+  font-size: 1em;
+  font-weight: 400;
+  margin-top: 20px;
+  border-bottom: solid 5px #8D4F39;
+}
+
+.intro-details {
+  width: 50%;
+  margin: 30px auto;
+  padding: 10px;
+}

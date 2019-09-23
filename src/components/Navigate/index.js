@@ -40,7 +40,7 @@ const renderNavigation = () => {
             </div>
           </div>
           <div>
-           
+           <Avatar />
           </div>
         </div>
       </header>

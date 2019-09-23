@@ -1,7 +1,7 @@
 #social-links-wrapper {
   display: inline-block;
   left: 0;
-  top: 40%;
+  top: 35%;
   position: fixed;
 }
 
@@ -39,14 +39,4 @@ li {
 #dribbble-svg {
   width: 30px;
   height: 30px;
-}
-
-label[for="github-svg"]:hover:not(:focus)::after {
-    content: "Tooltip Message";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 1px solid;
-    background: white;
 }

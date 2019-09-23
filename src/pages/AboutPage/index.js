@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 
+import AboutPageContainer  from '../../containers/AboutPage';
+
 class AboutPage extends Component {
   render() {
     return (
       <>
-        <h2>About Page</h2>
+        <AboutPageContainer />
       </>
     )
   }

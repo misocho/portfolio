@@ -7,12 +7,18 @@ import Content from '../../containers/Content';
 import './app.css';
 
 export class AppContainer extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   render() {
+    const { children } = this.props;
+
     return (
       <>
-      <NavigateContainer />
-      <Content />
+        <NavigateContainer />
+
+        <Content {...children} />
       </>
     );
   }

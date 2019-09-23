@@ -9,7 +9,6 @@ class AppRoute extends Component {
       <Route 
         {...rest}
         render={(props) => {
-          const {location} = this.props;
 
           return <ComponentToRender {...props} />;
         }}

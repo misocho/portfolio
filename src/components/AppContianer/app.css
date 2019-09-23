@@ -5,31 +5,16 @@ header,
 #app,
 .body-box {
   height: 100%;
+  background-color: #F6F7FB;
+  font-size: 100%;
+  color: #242729;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 * {
   box-sizing: border-box;
 font-family: 'Open Sans', sans-serif;}
-
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: Op;
-  background-color: #f4f4f4;
-  font-size: 100%;
-  color: #242729;
-  display: block;
-}
-
-.body-box {
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-.page-body {
-  padding-top: 130px;
-}
 
 a {
   text-decoration-style: none !important;
