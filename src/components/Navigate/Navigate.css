@@ -67,6 +67,6 @@ nav ul li a:hover {
 }
 #nav-line {
   height: 20px;
-  border-top: 1px solid #707070;
+  border-top: 1px solid rgba(112, 112, 112, .4);
   margin: 12px 5% 0 5%;
 }
