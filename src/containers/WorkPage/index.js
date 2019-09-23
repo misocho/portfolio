@@ -10,7 +10,7 @@ class WorkPageContainer extends Component {
           <div className="work-page-content">
             <div className="tab">
               <div className="tab-title">Professional Work</div>
-              <div className="tab-title">Personal Projects</div>
+              <div className="tab-titles">Personal Projects</div>
             </div>
             <div className="work-page-cards">
               <div className="card-container">
@@ -26,7 +26,6 @@ class WorkPageContainer extends Component {
                     <dt>Role</dt>
                     <dd>Software Engineer</dd>
                   </dl>
-
                 </div>
               </div>
             </div>
