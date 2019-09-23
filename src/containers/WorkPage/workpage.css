@@ -1,3 +1,7 @@
+.tab-border {
+  margin-bottom: 20px; 
+}
+
 .card-container {
   padding: 10px;
 }
@@ -12,10 +16,10 @@
   border-radius: 3px;
   width: 100%;
   transition: all .2s ease-in-out;
+  margin-top: 20px;
 }
 
 .work-page-cards:hover {
-  margin-top: -3px;
   transform: scale(1.02);
   cursor: pointer;
 }
@@ -46,7 +50,6 @@ dd {
 }
 
 .tab {
-  border-bottom:#CDCDCD solid 1px;
   margin-bottom: 15px;
 }
 
@@ -57,6 +60,7 @@ dd {
   display: inline-block;
   padding: 5px 5px 2px 0;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .tab-titles {
