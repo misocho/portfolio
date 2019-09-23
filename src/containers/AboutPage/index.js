@@ -34,7 +34,7 @@ export class AboutPageContainer extends Component {
             <div className="section-content">
               <div> Software Engineer at Andela, Nairobi</div>
               <div>May 2019 - October 2019 </div>
-              <div class="list">
+              <div className="list">
                 <ul>
                   <li>
                     Lead a team of 6 engineers in contributing feactures to several products.

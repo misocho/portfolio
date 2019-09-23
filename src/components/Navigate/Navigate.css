@@ -61,10 +61,7 @@ nav ul li a {
 #avatar {
   width: 20%;
 }
-nav ul li a:hover {
-  border-bottom: 15px solid #8d4f39;
-  transition: all 0.3s ease;
-}
+
 #nav-line {
   height: 20px;
   border-top: 1px solid rgba(112, 112, 112, .4);
