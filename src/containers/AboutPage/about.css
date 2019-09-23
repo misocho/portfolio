@@ -1,18 +1,47 @@
 #about-wrapper {
-  display: flex;
+  display: block;
   margin: auto;
   width: 70%;
 }
 
 .section {
   width: 40%;
-  background: yellow;
-  margin: auto;
-}
-#about-me {
-  background: blue;
+  margin: 0 auto;
 }
 
-#looking-for {
-  background: red;
+.about-top-section {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.about-bottom-section {
+  display: flex;
+}
+
+
+#skills-content {
+  text-align: justify;
+}
+
+.list {
+  text-align: justify;
+}
+
+.list ul {
+  padding: 5px 0;
+  text-align: justify;
+  list-style: circle;
+}
+
+.list ul li {
+  list-style: none;
+}
+
+.list ul li::before {
+  content: "\2022";
+  color: #8D4F39;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em; 
+  margin-left: -1em;
 }

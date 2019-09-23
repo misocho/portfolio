@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
+import WorkPageContainer from '../../containers/WorkPage';
+
 class WorkPage extends Component {
   render() {
     return (
       <>
-        <h2>WorkPage</h2>
+        <WorkPageContainer />
       </>
     );
   }

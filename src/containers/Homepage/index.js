@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './homepage.css';
 
-export class HomePageContainer extends Component {
+class HomePageContainer extends Component {
 
   render() {
     return (
