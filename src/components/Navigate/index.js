@@ -9,7 +9,7 @@ import './navigate.css';
 
 export class renderNavigation extends Component {
   
-  active = { 'border-bottom': '15px solid #8d4f39', transition: 'all 0.3s ease'}
+  active = { 'borderBottom': '15px solid #8d4f39', transition: 'all 0.3s ease'}
 
   render() {
   
