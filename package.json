@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "eslint src",
     "dev": "webpack-dev-server --mode development --open --hot --inline",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   },
   "homepage": "http://misocho.github.io/portfolio",
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "glamor": "^2.20.40",
     "glamorous": "^5.0.0",
     "prop-types": "^15.7.2",
