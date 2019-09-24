@@ -8,49 +8,38 @@ import './socialLinks.css';
 
 export class RenderSocialLinks extends Component {
 
-  state =  {
+  links =  {
     email: 'https://mail.google.com/mail/?view=cm&fs=1&to=+misochobrian@gmail.com',
     resume: 'https://drive.google.com/file/d/1O4yhDWUUHqpjwmKYbuN8-WmDG9kBjVec/view?usp=sharing',
     linkedIn: 'https://www.linkedin.com/in/brian-misocho/',
     github: 'https://github.com/misocho'
   }
 
-  onClick = (e, iconName) => {
-    e.persist();
-    const currentState = this.state
-    let url;
-    switch (iconName) {
-      case 'email':
-        url = currentState.email;
-        break;
-      case 'resume':
-        url = currentState.resume;
-        break;
-      case 'linkedIn':
-        url = currentState.linkedIn;
-        break;
-      case 'github':
-        url = currentState.github;
-    }
-    let win = window.open(url, '_blank');
-    win.focus();
-  }
-  
+ 
   render() {
+    const { email, resume, linkedIn, github } =this.links;
     return (
       <div id="social-links-wrapper">
         <ul>
           <li>
-            <EmailIcon className="social-svg" id="email-svg" onClick={(e) => this.onClick(e, 'email')} />
+            <a href={email} target="_blank">
+              <EmailIcon className="social-svg" id="email-svg" />
+            </a>
           </li>
           <li>
-            <ResumeIcon className="social-svg" id="resume-svg" onClick={(e) => this.onClick(e, 'resume')}/>
+            <a href={resume} target="_blank">
+              <ResumeIcon className="social-svg" id="resume-svg" />
+            </a>
           </li>
           <li>
-            <LinkedInIcon className="social-svg" id="linkedin-svg" onClick={(e) => this.onClick(e, 'linkedIn')}/>
+           <a href={linkedIn} target="_blank">
+              <LinkedInIcon className="social-svg" id="linkedin-svg" />
+           </a>
           </li>
           <li>
-            <GitHubIcon className="social-svg" id="github-svg" onClick={(e) => this.onClick(e, 'github')}/>
+           <a href={github} target="_blank">
+              <GitHubIcon className="social-svg" id="github-svg" />
+           </a>
           </li>
         </ul>
       </div>

@@ -4,6 +4,9 @@ import glamorous from "glamorous";
 import Tabs from '../../components/Tabs';
 import Work from '../../db/workpage.db';
 
+import LinkIcon from '../../icons/link.svg';
+import CodeIcon from '../../icons/code.svg';
+
 import './workpage.css';
 
 class WorkPageContainer extends Component {
@@ -45,7 +48,7 @@ class WorkPageContainer extends Component {
                 </Tabs.Tab>
                 <Tabs.Tab id="personal-projects" title="Personal Projects">
                   {personalProjects.map((work, index) => {
-                    const { title, technologies, description, role } = work;
+                    const { title, technologies, description, role, githubLink, hostedLink } = work;
                     return (
                       <div className="work-page-cards" key={index}>
                         <div className="card-container">
@@ -59,6 +62,16 @@ class WorkPageContainer extends Component {
                               <dt>Role</dt>
                               <dd>{role}</dd>
                             </dl>
+                          </div>
+                          <div >
+                            <ul className="card-links">
+                              <a href={hostedLink} target="_blank">
+                              <LinkIcon id="link-icon" className="social-svg work links" />
+                              </a>
+                              <a href={githubLink} target="_blank">
+                                <CodeIcon id="code-icon" className="social-svg work-links" />
+                              </a>
+                            </ul>
                           </div>
                         </div>
                       </div>

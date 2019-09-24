@@ -3,14 +3,17 @@ import React, { Component } from 'react';
 import EmailIcon from '../../icons/email.svg';
 import PhoneIcon from '../../icons/phone2.svg';
 import AddressIcon from '../../icons/location-pin.svg';
+import Contacts from '../../db/contactpage.db';
 
 
 import './contactpage.css';
 
 
 export class ContactPageContainer extends Component {
-
+  
   render() {
+    const { address, email, phone } = Contacts;
+
     return (
       <div className="contact-page-wrapper">
         <div className="contacts-wrapper">
@@ -21,7 +24,7 @@ export class ContactPageContainer extends Component {
                 <div id="contact-address-icon">
                   <AddressIcon className="contact-svg" id="contact-address-svg" />
                   <div className="contact-name">Address</div>
-                  <div className="contact">Nairobi, Kenya</div>
+                  <div className="contact">{address}</div>
                 </div>
               </div>
             </div>
@@ -30,7 +33,7 @@ export class ContactPageContainer extends Component {
               <div id="contact-email-icon">
                   <EmailIcon className="contact-svg" id="contact-email-svg"/>
                   <div className="contact-name">Email</div>
-                  <div className="contact">misochobrian@gmail.com</div>
+                  <div className="contact">{ email }</div>
               </div>
               </div>
             </div>
@@ -39,7 +42,7 @@ export class ContactPageContainer extends Component {
                 <div id="contact-phone-icon">
                   <PhoneIcon className="contact-svg" id="contact-phone-svg" />
                   <div className="contact-name">Phone</div>
-                  <div className="contact"> +254-798-734-967</div>
+                  <div className="contact">{ phone }</div>
                 </div>
               </div>
             </div>

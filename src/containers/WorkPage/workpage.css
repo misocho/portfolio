@@ -21,7 +21,6 @@
 
 .work-page-cards:hover {
   transform: scale(1.02);
-  cursor: pointer;
 }
 
 .card-title {
@@ -53,15 +52,6 @@ dd {
   margin-bottom: 15px;
 }
 
-.tab-title {
-  margin-bottom:  0px;
-  font-weight: 600;
-  border-bottom: 3px solid #8D4F39;
-  display: inline-block;
-  padding: 5px 5px 2px 0;
-  margin-right: 20px;
-  cursor: pointer;
-}
 
 .tab-titles {
   margin-bottom:  0px;
@@ -69,4 +59,26 @@ dd {
   display: inline-block;
   padding: 5px 5px 2px 0;
   margin-right: 20px;
+}
+
+.card-links {
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.card-links li {
+  margin: 0;
+}
+
+#link-icon {
+  width: 20px;
+  height: 20px;
+}
+
+#code-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
 }
