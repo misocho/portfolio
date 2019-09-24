@@ -7,10 +7,10 @@
     "node": "10.3.0"
   },
   "scripts": {
-    "heroku-postbuild": "npm run build",
+     "start": "node server.js", 
+    "heroku-postbuild": "webpack -p",
     "lint": "eslint src",
     "dev": "webpack-dev-server --mode development --open --hot --inline",
-    "build": "webpack --mode production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -25,9 +25,11 @@
   },
   "homepage": "http://misocho.github.io/portfolio",
   "dependencies": {
+    "express": "^4.17.1",
     "gh-pages": "^2.1.1",
     "glamor": "^2.20.40",
     "glamorous": "^5.0.0",
+    "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
