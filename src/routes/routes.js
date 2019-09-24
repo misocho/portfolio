@@ -4,25 +4,25 @@ import WorkPage from "../pages/WorkPage";
 import ContactPage from "../pages/ContactPage";
 const routes = [
   {
-    path: '/',
+    path: '',
     name: 'HomePage',
     component: HomePage,
     exact: true,
   },
   {
-    path: '/about',
+    path: 'about',
     name: 'AboutPage',
     component: AboutPage,
     exact: true,
   },
   {
-    path: '/work',
+    path: 'work',
     name: 'WorkPage',
     component: WorkPage,
     exact: true,
   },
   {
-    path: '/contact',
+    path: 'contact',
     name: 'ContactPage',
     component: ContactPage,
     exact: true,

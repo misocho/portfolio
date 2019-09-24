@@ -1,12 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Redirect, HashRouter } from 'react-router-dom';
 import { routes, AppRoute }  from '../../routes';
 import AppContainer from '../AppContianer';
+
+import HomePage from '../../pages/HomePage';
 
 const App = (props) => {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <AppContainer {...props}>
           <Switch>
             {routes.map(( { exact, path, component }) => {
@@ -19,9 +21,10 @@ const App = (props) => {
                 />
               )
             })}
+            <Redirect exact from="/" to={HomePage} />
           </Switch>
         </AppContainer>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
