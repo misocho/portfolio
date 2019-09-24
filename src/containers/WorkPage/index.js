@@ -2,62 +2,70 @@ import React, { Component } from 'react';
 import glamorous from "glamorous";
 
 import Tabs from '../../components/Tabs';
+import Work from '../../db/workpage.db';
 
 import './workpage.css';
 
 class WorkPageContainer extends Component {
 
- 
+
   render() {
+    const { professionalWork, personalProjects } = Work;
     return (
       <>
         <div className="work-page-container">
           <div className="work-page-content">
             <div className="tab">
-             <Tabs
-             activeTab={{
+              <Tabs
+                activeTab={{
                   id: "professional-work"
-             }}
-             >
+                }}
+              >
                 <Tabs.Tab id="professional-work" title="Professional Work" className="tab-border">
-                    <div className="work-page-cards">
-                      <div className="card-container">
-                        <div className="card-title"> MMDP Product </div>
-                        <div className="card-content">
-                          <dl>
-                            <dt>Technologies</dt>
-                            <dd>JQuery, D3.js, HTML, CSS</dd>
-                            <dt>Description</dt>
-                            <dd>The MMDP product acted in a bid to eradicate illegal
-                            migration in Nigeria and promote economic
-                  prosperity and safety for Nigerian citizens.</dd>
-                            <dt>Role</dt>
-                            <dd>Software Engineer</dd>
-                          </dl>
+                  {professionalWork.map((work, index) => {
+                    const { title, technologies, description, role } = work;
+                    return (
+                      <div className="work-page-cards" key={index}>
+                        <div className="card-container">
+                          <div className="card-title">{title}</div>
+                          <div className="card-content">
+                            <dl>
+                              <dt>Technologies</dt>
+                              <dd>{technologies}</dd>
+                              <dt>Description</dt>
+                              <dd>{description}</dd>
+                              <dt>Role</dt>
+                              <dd>{role}</dd>
+                            </dl>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    );
+                  })}
                 </Tabs.Tab>
-                <Tabs.Tab id="tab2" title="Personal Projects">
-                 <div className="work-page-cards">
-                      <div className="card-container">
-                        <div className="card-title"> MMDP Product 2 </div>
-                        <div className="card-content">
-                          <dl>
-                            <dt>Technologies</dt>
-                            <dd>JQuery, D3.js, HTML, CSS</dd>
-                            <dt>Description</dt>
-                            <dd>The MMDP product acted in a bid to eradicate illegal
-                            migration in Nigeria and promote economic
-                  prosperity and safety for Nigerian citizens.</dd>
-                            <dt>Role</dt>
-                            <dd>Software Engineer</dd>
-                          </dl>
+                <Tabs.Tab id="personal-projects" title="Personal Projects">
+                  {personalProjects.map((work, index) => {
+                    const { title, technologies, description, role } = work;
+                    return (
+                      <div className="work-page-cards" key={index}>
+                        <div className="card-container">
+                          <div className="card-title">{title}</div>
+                          <div className="card-content">
+                            <dl>
+                              <dt>Technologies</dt>
+                              <dd>{technologies}</dd>
+                              <dt>Description</dt>
+                              <dd>{description}</dd>
+                              <dt>Role</dt>
+                              <dd>{role}</dd>
+                            </dl>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    );
+                  })}
                 </Tabs.Tab>
-             </Tabs>
+              </Tabs>
             </div>
           </div>
         </div>

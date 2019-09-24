@@ -14,7 +14,7 @@ export class ContactPageContainer extends Component {
     return (
       <div className="contact-page-wrapper">
         <div className="contacts-wrapper">
-          <div className="contact-title">Lets get in touch...</div>
+          <div className="contact-title">Let's get in touch...</div>
           <div className="contact-cards-wrapper">
             <div className="contact-card end-cards"> 
               <div id="address-card">

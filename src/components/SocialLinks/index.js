@@ -9,8 +9,8 @@ import './socialLinks.css';
 export class RenderSocialLinks extends Component {
 
   state =  {
-    email: 'https://mail.google.com/mail/?view=cm&fs=1&to=+misochobrian@gmail.com;',
-    resume: 'https://drive.google.com/file/d/181JlGVLvjeScj79uY0mezQLmWwg8P-bs/view?usp=sharing',
+    email: 'https://mail.google.com/mail/?view=cm&fs=1&to=+misochobrian@gmail.com',
+    resume: 'https://drive.google.com/file/d/1O4yhDWUUHqpjwmKYbuN8-WmDG9kBjVec/view?usp=sharing',
     linkedIn: 'https://www.linkedin.com/in/brian-misocho/',
     github: 'https://github.com/misocho'
   }
