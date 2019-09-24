@@ -35,10 +35,10 @@ const Work = {
     {
       title: "Personal Portfolio",
       technologies: "React",
-      description: `My personal portfolio with a collwction of all my work and achivements`,
+      description: `My personal portfolio with a collection of all my work and achievements`,
       role: 'Front End developer',
       githubLink: "https://github.com/misocho/portfolio",
-      hostedLink: "http://misocho.github.io/portfolio",
+      hostedLink: "https://moranga-portfolio.herokuapp.com/",
     },
     {
       title: "Questioner",
