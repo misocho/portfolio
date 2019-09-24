@@ -8,7 +8,7 @@
   },
   "scripts": {
      "start": "node server.js", 
-    "heroku-postbuild": "webpack -p",
+    "heroku-postbuild": "webpack --mode production",
     "lint": "eslint src",
     "dev": "webpack-dev-server --mode development --open --hot --inline",
     "predeploy": "npm run build",
