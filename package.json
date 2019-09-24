@@ -7,6 +7,7 @@
     "node": "10.3.0"
   },
   "scripts": {
+    "heroku-postbuild": "npm run build",
     "lint": "eslint src",
     "dev": "webpack-dev-server --mode development --open --hot --inline",
     "build": "webpack --mode production",
