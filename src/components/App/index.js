@@ -8,7 +8,7 @@ import HomePage from '../../pages/HomePage';
 const App = (props) => {
   return (
     <div className="App">
-      <HashRouter>
+      <BrowserRouter>
         <AppContainer {...props}>
           <Switch>
             {routes.map(( { exact, path, component }) => {
@@ -24,7 +24,7 @@ const App = (props) => {
             <Redirect exact from="/" to={HomePage} />
           </Switch>
         </AppContainer>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }

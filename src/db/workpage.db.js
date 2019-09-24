@@ -38,7 +38,7 @@ const Work = {
       description: `My personal portfolio with a collwction of all my work and achivements`,
       role: 'Front End developer',
       githubLink: "https://github.com/misocho/portfolio",
-      hostedLink: "https://misocho.github.io/questioner/UI/templates/",
+      hostedLink: "http://misocho.github.io/portfolio",
     },
     {
       title: "Questioner",
