@@ -45,3 +45,13 @@
   width: 1em; 
   margin-left: -1em;
 }
+
+.skill-container {
+  border: #8D4F39 2px solid;
+  background: rgb(141, 79, 57, 0.1);
+  border-radius: 3px;
+  display: inline-block;
+  padding: 5px;
+  color: #000000;
+  margin: 5px;
+}

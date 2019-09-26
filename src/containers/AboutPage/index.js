@@ -20,7 +20,13 @@ export class AboutPageContainer extends Component {
             <div id='looking-for'>
               <div className="section-title">Skills</div>
               <div className="section-content" id="skills-content">
-                {skills.map((skill) => `${skill} | `)}
+                {skills.map((skill) => {
+                  return (
+                    <div className="skill-container">
+                      {skill}
+                </div>
+                  );
+                })}
               </div>
             </div>
           </div>
