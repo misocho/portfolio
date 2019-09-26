@@ -10,7 +10,7 @@ export class RenderSocialLinks extends Component {
 
   links =  {
     email: 'https://mail.google.com/mail/?view=cm&fs=1&to=+misochobrian@gmail.com',
-    resume: 'https://drive.google.com/file/d/1-E1wF80ugDA8Z16gkJhOCaSRJJ3NwL51/view?usp=sharing',
+    resume: 'https://drive.google.com/file/d/1kHLQZ0Nw_j32F1XLKD0pOMooSPhO6uT9/view?usp=sharing',
     linkedIn: 'https://www.linkedin.com/in/brian-misocho/',
     github: 'https://github.com/misocho'
   }
