@@ -13,11 +13,11 @@ const About = {
       start: 'May 2019',
       end: 'Present',
       description: [
-        'Lead a team of 6 engineers in contributing feactures to several products.',
-        'Responsible for maintaining the staging and production pipelines implementing automated deployment and continuous development.',
-        'Participated in maintaining and updating legacy code.',
-        'Took ownership of my work and deliver tasks within schedule.',
-        'Actively participated in code and PR reviews and giva actionable feedback.',
+        'Managed a distributed team of 6 Andelan engineers in recommending and implementing solutions.',
+        ' I was responsible for maintaining the staging and production pipelines, implementing automated deployments, and continuous development.',
+        'Actively participated in maintaining and updating legacy code.',
+        'I took ownership of my work and delivered tasks within schedule.',
+        'Actively participated in code and PR reviews and gave actionable feedback.',
         'Onboarded and mentored new team members onto the product.'
       ]
     }
