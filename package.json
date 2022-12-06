@@ -25,7 +25,7 @@
   },
   "homepage": "http://misocho.github.io/portfolio",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "gh-pages": "^2.1.1",
     "glamor": "^2.20.40",
     "glamorous": "^5.0.0",
