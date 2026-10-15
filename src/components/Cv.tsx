@@ -20,6 +20,7 @@ export function Cv() {
           label="Curriculum vitae"
           title="The full record."
           deck="The complete CV — every role, the detail behind it, and a copy to take with you."
+          minor
         />
 
         <div className="cv" data-reveal>

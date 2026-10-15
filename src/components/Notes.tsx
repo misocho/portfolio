@@ -10,9 +10,10 @@ export function Notes() {
       <div className="container">
         <SectionMasthead
           num="02"
-          label="Engineering notes"
+          label="Notes"
           title="How I like to work."
-          deck="Short notes on the parts of engineering that do not fit neatly on a résumé — the judgment calls behind the code."
+          deck="Short notes on the judgment calls behind the code — the engineering thinking that does not fit neatly on a résumé."
+          minor
         />
 
         <div className="grid-notes">

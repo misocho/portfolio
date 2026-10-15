@@ -10,6 +10,7 @@ export function Skills() {
           label="Skills"
           title="Tools and areas of focus."
           deck="What I reach for, and the kind of problems they are for."
+          minor
         />
 
         <div className="skills">

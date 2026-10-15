@@ -286,10 +286,11 @@ export function Hero() {
             Senior Backend Engineer · AI Systems · Distributed Systems · Python
           </p>
           <p className="hero__lede">
-            I build backend systems that turn complex workflows and data into reliable software —
-            from asynchronous processing and APIs to AI-enabled products with clear business
-            rules. This is a short, honest record of the work, the engineering decisions behind
-            it, and the outcomes I helped deliver.
+            Senior backend engineer with seven years across AI systems and distributed systems. I
+            design and build services, APIs and data pipelines — asynchronous processing, strict
+            validation and explicit business rules — for products in healthcare, sport and
+            operations. What follows is an honest record of the work, the engineering decisions
+            behind it, and the evidence behind each claim.
           </p>
           <div className="hero__actions">
             <a className="btn btn--primary" href="#work">

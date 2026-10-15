@@ -9,6 +9,7 @@ export function AboutExperience() {
           num="03"
           label="About & experience"
           title="Mostly backend, always about the people using it."
+          minor
         />
 
         <div className="grid-about">
