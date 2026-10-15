@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 
 // Fonts (self-hosted via @fontsource, no external requests)
 import '@fontsource/newsreader/400.css';
@@ -18,8 +18,18 @@ import { App } from './App';
 const container = document.getElementById('root');
 if (!container) throw new Error('Root element #root not found');
 
-createRoot(container).render(
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 );
+
+// The production build pre-renders App into #root (see scripts/prerender.mjs),
+// so hydrate that markup to keep it and attach interactivity. When #root is
+// empty (e.g. the dev server, where no prerender runs) fall back to a client
+// render instead.
+if (container.hasChildNodes()) {
+  hydrateRoot(container, app);
+} else {
+  createRoot(container).render(app);
+}

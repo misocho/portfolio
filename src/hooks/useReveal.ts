@@ -13,7 +13,6 @@ export function useReveal(enabled: boolean): void {
     if (!enabled) return;
 
     const root = document.documentElement;
-    root.classList.add('reveal-enabled');
 
     const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
     if (targets.length === 0) return;
@@ -22,6 +21,17 @@ export function useReveal(enabled: boolean): void {
       targets.forEach((el) => el.classList.add('is-visible'));
       return;
     }
+
+    // The production build is pre-rendered, so content is visible before this
+    // effect runs. Mark anything already on screen as visible *before* enabling
+    // the reveal styles, otherwise it would fade out and back in on hydration.
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    targets.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < viewportHeight && rect.bottom > 0) el.classList.add('is-visible');
+    });
+
+    root.classList.add('reveal-enabled');
 
     const observer = new IntersectionObserver(
       (entries) => {

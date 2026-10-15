@@ -8,7 +8,10 @@
     "dev": "vite",
     "resume:build": "node scripts/build-resume.mjs",
     "prebuild": "npm run resume:build",
-    "build": "tsc -b && vite build",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
+    "prerender": "node scripts/prerender.mjs",
+    "build": "tsc -b && npm run build:client && npm run build:ssr && npm run prerender",
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
     "lint": "eslint ."
