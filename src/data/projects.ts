@@ -220,10 +220,10 @@ export const beoflow: Project = {
     'Built and maintained backend services for the platform as part of a wider engineering team.',
     'Worked on asynchronous, time-series processing so performance data stays current under load.',
     'Integrated AI analytics into the pipeline to add value on top of raw measurements.',
-    'Led a migration of a core processing path to Rust, cutting processing time by more than 80% on that work.',
+    'Led a Rust rewrite of the per-athlete readiness recomputation, bringing processing from seconds to milliseconds.',
   ],
   outcome:
-    'A processing path that once took minutes now completes in a fraction of the time — fast enough to sit closer to real-time, without giving up correctness.',
+    'A path that once recomputed readiness in seconds now completes in milliseconds — fast enough to sit closer to real-time, without giving up correctness.',
   languages: ['Python', 'Rust'],
   technologies: [],
   areas: ['Asynchronous time-series processing', 'AI analytics'],
@@ -302,8 +302,8 @@ export const beoflow: Project = {
     {
       title: 'A Rust optimization on the hot path',
       paragraphs: [
-        'One core processing path was migrated to Rust, cutting processing time by more than 80% for that specific workload.',
-        'The gain is scoped deliberately: it refers to the processing work Brian led, not to the product as a whole.',
+        'The per-athlete readiness recomputation — deriving readiness from raw sensor streams — was migrated to Rust, taking the work from seconds down to milliseconds.',
+        'The gain is scoped deliberately: it refers to the processing work Brian led on that path, not to the product as a whole. The team adopted the change afterwards.',
       ],
     },
   ],

@@ -43,7 +43,7 @@
       "bullets": [
         "Developed and maintained backend services and application APIs for a coach- and athlete-facing performance platform.",
         "Built asynchronous pipelines processing time-series performance data used by analytics.",
-        "Contributed a Rust-based optimization that cut processing time by more than 80% for the relevant workload.",
+        "Led a Rust rewrite of the per-athlete readiness recomputation, cutting processing time from seconds to milliseconds.",
         "Integrated AI-enabled analytics into existing workflows."
       ]
     },
