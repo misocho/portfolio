@@ -327,16 +327,16 @@ export const dorsa: Project = {
   summary:
     'Dorsa builds software for perioperative care — the time around surgery, where schedules shift, information is scattered, and coordination decides how a day goes. The work sits at the meeting point of backend services, AI and natural-language workflows, and cloud infrastructure that has to stay dependable.',
   contribution: [
-    'Led backend engineering for the platform within a wider team.',
-    'Worked on AI and natural-language workflow orchestration across services.',
-    'Built and maintained cloud-based backend services that the product relies on.',
+    'Led backend engineering for the platform within a small team of backend, hardware and junior engineers.',
+    'Owned the backend services and APIs (including multi-tenancy), the NLP and AI-enabled workflow orchestration, data processing and surgery-document ingestion, and deployments.',
+    'Built and maintained the cloud-based services the product relies on, and contributed to the front-end web app and a Raspberry Pi device when needed.',
     'Contributed to operational improvements associated with roughly 15 minutes less turnover per procedure.',
   ],
   outcome:
     'Operational gains in a setting where small amounts of time, recovered consistently across a whole day of procedures, add up.',
   languages: ['Python'],
-  technologies: ['Cloud infrastructure'],
-  areas: ['Backend services', 'AI & NLP workflow orchestration'],
+  technologies: ['Docker', 'AWS'],
+  areas: ['Backend services & multi-tenancy', 'AI & NLP workflow orchestration', 'Document ingestion'],
   external: { label: 'Explore Dorsa AI', href: 'https://www.dorsa.ai/' },
   media: [
     {
@@ -385,19 +385,19 @@ export const dorsa: Project = {
       title: 'Backend architecture for time-sensitive workflows',
       paragraphs: [
         'Perioperative care runs on a schedule that changes under pressure. The backend has to keep services, data and notifications consistent while a day is being reshaped in real time.',
-        'That meant leading the design and maintenance of the services and APIs the product depends on, and keeping them operable on cloud infrastructure.',
+        'That meant leading the design and maintenance of the services and APIs the product depends on — including multi-tenancy — and keeping them operable on cloud infrastructure.',
       ],
     },
     {
       title: 'AI & NLP workflow orchestration',
       paragraphs: [
         'A lot of the coordination work is language: messages, notes and status updates that a person would otherwise read and route by hand. The platform uses AI and NLP to help interpret and direct that work.',
-        'The aim is assistive rather than autonomous — surfacing and routing information so clinical teams stay in control.',
+        'The aim is assistive rather than autonomous — surfacing and routing information so clinical teams stay in control. The work included ingesting the surgery documents teams had to upload and processing them for downstream use.',
       ],
     },
   ],
   honestyNote:
-    "Dorsa's public site does not publish a dashboard screenshot, so none is shown. The composition on this page is illustrative and built only from Dorsa's own published illustration, hero imagery and product-suite names. Brian was backend lead within a wider team; the ~15-minute figure is associated with the broader operational improvement, not attributed to him alone. See MEDIA-SOURCES.md for how to drop in a genuine screenshot.",
+    "Dorsa's public site does not publish a dashboard screenshot, so none is shown. The composition on this page is illustrative and built only from Dorsa's own published illustration, hero imagery and product-suite names. Brian was backend lead within a small team (backend, hardware and junior engineers); the ~15-minute figure is an internal estimate across partner hospitals over about a year, associated with the broader operational improvement and not attributed to him alone. See MEDIA-SOURCES.md for how to drop in a genuine screenshot.",
   theme: 'dorsa',
 };
 
