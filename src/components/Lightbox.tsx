@@ -161,15 +161,39 @@ export function Lightbox({ project, media, index, onNavigate, onClose }: Lightbo
         <aside className="lightbox__side">
           <p className="kicker">{project.category}</p>
           <h3>{project.title}</h3>
-          <p>{project.summary}</p>
 
           <div className="lightbox__block">
-            <h4>What I did</h4>
+            <h4>Problem</h4>
+            <p>{project.summary}</p>
+          </div>
+
+          <div className="lightbox__block">
+            <h4>My contribution</h4>
             <ul>
               {project.contribution.map((c) => (
                 <li key={c}>{c}</li>
               ))}
             </ul>
+          </div>
+
+          <div className="lightbox__block">
+            <h4>Evidence and outcome</h4>
+            <p>{project.outcome}</p>
+            {project.evidence && (
+              <>
+                <p>
+                  <strong>{project.evidence.title}.</strong> {project.evidence.lead}
+                </p>
+                <ul>
+                  {project.evidence.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+                {project.evidence.note && (
+                  <p className="lightbox__disclaimer">{project.evidence.note}</p>
+                )}
+              </>
+            )}
           </div>
 
           <div className="lightbox__block">

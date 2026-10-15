@@ -195,14 +195,13 @@ function DorsaStage({ media }: { media: ProjectMedia[] }) {
 }
 
 /* ------------------------------------------------------------------ */
-/* Engineering evidence                                                */
+/* Evidence artifact — sits under "Evidence and outcome"                */
 /* ------------------------------------------------------------------ */
 
 function Evidence({ evidence }: { evidence: EvidenceArtifact }) {
   return (
     <div className="evidence">
-      <p className="evidence__label">Engineering evidence</p>
-      <h4 className="evidence__title">{evidence.title}</h4>
+      <h5 className="evidence__title">{evidence.title}</h5>
       <p className="project__body">{evidence.lead}</p>
       <ul className="evidence__points">
         {evidence.points.map((point) => (
@@ -245,6 +244,7 @@ export function ProjectFeature({ project, reversed, onOpen }: ProjectFeatureProp
 
       <div className={`split split--work${reversed ? ' is-reversed' : ''}`}>
         <div className="split__text stack" data-reveal>
+          <h4 className="project__subhead">Problem</h4>
           <p className="project__body">{project.summary}</p>
 
           <h4 className="project__subhead">My contribution</h4>
@@ -254,9 +254,10 @@ export function ProjectFeature({ project, reversed, onOpen }: ProjectFeatureProp
             ))}
           </ul>
 
-          <p className="project__body">
-            <strong>Outcome.</strong> {project.outcome}
-          </p>
+          <h4 className="project__subhead">Evidence and outcome</h4>
+          <p className="project__body">{project.outcome}</p>
+
+          {project.evidence && <Evidence evidence={project.evidence} />}
 
           {project.technical && project.technical.length > 0 && (
             <>
@@ -271,8 +272,6 @@ export function ProjectFeature({ project, reversed, onOpen }: ProjectFeatureProp
               />
             </>
           )}
-
-          {project.evidence && <Evidence evidence={project.evidence} />}
 
           <h4 className="project__subhead">Stack &amp; focus areas</h4>
           <StackGroups project={project} />
@@ -297,6 +296,7 @@ export function ProjectFeature({ project, reversed, onOpen }: ProjectFeatureProp
         </div>
 
         <div className="split__media" data-reveal>
+          <p className="plate__eyebrow">Inspect the work</p>
           <button
             type="button"
             className="plate" aria-haspopup="dialog"

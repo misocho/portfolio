@@ -667,6 +667,10 @@
   color: var(--ink);
 }
 
+.split__text > .project__subhead:first-child {
+  margin-top: 0;
+}
+
 .contribution {
   display: grid;
   gap: var(--space-2xs);
@@ -769,6 +773,15 @@
 }
 
 /* ---- Media plate (the clickable preview) --------------------------- */
+
+.plate__eyebrow {
+  margin-bottom: var(--space-s);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
 
 .plate {
   position: relative;
@@ -2038,7 +2051,7 @@
   max-width: var(--measure);
 }
 
-/* ---- Engineering evidence ----------------------------------------- */
+/* ---- Evidence artifact (under "Evidence and outcome") -------------- */
 .evidence {
   margin-top: var(--space-l);
   padding: clamp(1rem, 0.7rem + 1.5vw, 1.4rem);
@@ -2047,14 +2060,6 @@
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--surface) 38%, transparent);
   max-width: var(--measure);
-}
-
-.evidence__label {
-  font-family: var(--font-mono);
-  font-size: var(--step--2);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--rust-text);
 }
 
 .evidence__title {

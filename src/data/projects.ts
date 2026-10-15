@@ -307,8 +307,17 @@ export const beoflow: Project = {
       ],
     },
   ],
+  evidence: {
+    title: 'Scoping the performance claim',
+    lead: 'The seconds-to-milliseconds figure describes one path — the per-athlete readiness recomputation — not the platform as a whole.',
+    points: [
+      'The improvement came from a Rust rewrite Brian led on that path.',
+      'The team adopted the change afterwards, so it stayed in the product.',
+    ],
+    note: 'Not a published benchmark — the figure comes from the internal work on that path.',
+  },
   honestyNote:
-    'Brian worked as a backend engineer within a wider Beoflow team. The performance figure above refers to the specific processing work he led, not to the product as a whole. All images are published by Beoflow on beoflow.com.',
+    'Brian worked as a backend engineer within a wider Beoflow team. All images are published by Beoflow on beoflow.com.',
   theme: 'beoflow',
 };
 
@@ -396,8 +405,17 @@ export const dorsa: Project = {
       ],
     },
   ],
+  evidence: {
+    title: 'No public artifact',
+    lead: 'Dorsa publishes no dashboard screenshot and no public description of its backend, so the evidence here is the scope of the work rather than a product capture.',
+    points: [
+      'Brian was backend lead within a small team of backend, hardware and junior engineers.',
+      'The ~15-minute turnover figure is an internal estimate across partner hospitals over about a year, tied to the broader operational improvement — not attributed to him alone.',
+    ],
+    note: 'Stated plainly rather than dressed up as a screenshot.',
+  },
   honestyNote:
-    "Dorsa's public site does not publish a dashboard screenshot, so none is shown. The composition on this page is illustrative and built only from Dorsa's own published illustration, hero imagery and product-suite names. Brian was backend lead within a small team (backend, hardware and junior engineers); the ~15-minute figure is an internal estimate across partner hospitals over about a year, associated with the broader operational improvement and not attributed to him alone. See MEDIA-SOURCES.md for how to drop in a genuine screenshot.",
+    "Dorsa's public site does not publish a dashboard screenshot, so none is shown. The composition on this page is illustrative and built only from Dorsa's own published illustration, hero imagery and product-suite names. See MEDIA-SOURCES.md for how to drop in a genuine screenshot.",
   theme: 'dorsa',
 };
 
