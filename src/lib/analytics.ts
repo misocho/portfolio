@@ -4,9 +4,14 @@
  *
  * The tracker script is injected only when VITE_UMAMI_WEBSITE_ID is set, so
  * the site ships no third-party script — and makes no analytics request —
- * until an ID is configured. Page views are tracked automatically by Umami;
- * this module adds the outbound-link and file-download events that Umami does
- * not collect on its own.
+ * until an ID is configured. The ID is supplied via the environment
+ * (`.env.local` locally, the `VITE_UMAMI_WEBSITE_ID` repository Variable in
+ * CI); it is never committed.
+ *
+ * Tracking is restricted to VITE_UMAMI_DOMAINS (default: the production host)
+ * so local development and preview builds are never recorded. Page views are
+ * tracked automatically by Umami; this module adds the outbound-link and
+ * file-download events that Umami does not collect on its own.
  */
 
 declare global {
@@ -19,6 +24,7 @@ declare global {
 
 const WEBSITE_ID = import.meta.env.VITE_UMAMI_WEBSITE_ID;
 const SCRIPT_SRC = import.meta.env.VITE_UMAMI_SRC || 'https://cloud.umami.is/script.js';
+const DOMAINS = import.meta.env.VITE_UMAMI_DOMAINS || 'misocho.github.io';
 
 const DOWNLOAD_RE = /\.(pdf|zip|docx?|xlsx?|pptx?|csv|txt|png|jpe?g|webp|svg|mp4)$/i;
 
@@ -32,6 +38,7 @@ export function initAnalytics(): void {
   script.defer = true;
   script.src = SCRIPT_SRC;
   script.setAttribute('data-website-id', WEBSITE_ID);
+  if (DOMAINS) script.setAttribute('data-domains', DOMAINS);
   document.head.appendChild(script);
 
   // Delegated so it covers links rendered at any point (projects, CV, contact).

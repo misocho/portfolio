@@ -153,6 +153,9 @@ you provide an ID.
 plus **outbound-link** and **file-download** events (e.g. the résumé PDF). It
 is a no-op when the ID is absent.
 
+Tracking is restricted to `VITE_UMAMI_DOMAINS` (default: `misocho.github.io`),
+so local development and preview builds are never recorded.
+
 ---
 
 ## Deploying to GitHub Pages
