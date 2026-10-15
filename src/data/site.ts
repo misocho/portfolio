@@ -40,7 +40,7 @@ export interface SiteConfig {
 export const site: SiteConfig = {
   name: cv.name,
   shortName: 'Brian',
-  role: 'Senior backend software engineer',
+  role: 'Senior backend engineer · AI systems',
   email: cv.email,
   edition: 'FIELD NOTES · ENGINEERING PORTFOLIO · 2026',
   url: 'https://misocho.github.io/portfolio/',

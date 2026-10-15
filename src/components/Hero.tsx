@@ -283,7 +283,7 @@ export function Hero() {
             Notes from the <em>backend</em>.
           </h1>
           <p className="hero__role">
-            Senior Backend Software Engineer · Python · Distributed Systems · AI Engineering
+            Senior Backend Engineer · AI Systems · Distributed Systems · Python
           </p>
           <p className="hero__lede">
             I build backend systems that turn complex workflows and data into reliable software —
