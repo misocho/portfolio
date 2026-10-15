@@ -22,6 +22,10 @@ dist-ssr/
 .playwright-mcp/
 qa-*.png
 
+# internal planning (local only, not tracked)
+ROADMAP.md
+docs/evidence/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
