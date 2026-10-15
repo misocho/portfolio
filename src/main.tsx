@@ -1,16 +1,20 @@
 import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 
-// Fonts (self-hosted via @fontsource, no external requests)
-import '@fontsource/newsreader/400.css';
-import '@fontsource/newsreader/500.css';
-import '@fontsource/newsreader/600.css';
-import '@fontsource/newsreader/400-italic.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
-import '@fontsource/ibm-plex-mono/400.css';
-import '@fontsource/ibm-plex-mono/500.css';
+// Fonts (self-hosted via @fontsource, no external requests).
+// Latin subset only: the content is English, and every non-ASCII glyph used
+// (— U+2014, ’ U+2019, é U+00E9) sits inside the latin range (U+0000–00FF,
+// U+2000–206F). Importing the bare `400.css` pulls in cyrillic, greek and
+// vietnamese subsets the page never renders.
+import '@fontsource/newsreader/latin-400.css';
+import '@fontsource/newsreader/latin-500.css';
+import '@fontsource/newsreader/latin-600.css';
+import '@fontsource/newsreader/latin-400-italic.css';
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-500.css';
+import '@fontsource/inter/latin-600.css';
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import '@fontsource/ibm-plex-mono/latin-500.css';
 
 import './styles/index.css';
 import { App } from './App';
