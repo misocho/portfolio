@@ -16,7 +16,7 @@
       "current": true,
       "intro": "An AI-powered procurement and operations platform connecting existing business systems, operational data, supplier communications, and documents.",
       "bullets": [
-        "Took the platform from idea to a beta with testing customers in three months.",
+        "Part of the team that took the platform from idea to a beta with testing customers in about three months.",
         "Design and build backend services and APIs with Python, FastAPI, PostgreSQL, and Docker, plus data models for procurement, suppliers, purchase orders, invoices, and operational exceptions.",
         "Implemented strict validation and normalization for imported operational data, with LLM-assisted extraction behind deterministic business rules.",
         "Added human approval workflows and auditing for consequential actions, and automated coverage for import correctness and idempotent processing."
@@ -39,7 +39,7 @@
       "title": "Backend Engineer",
       "location": "Remote · Netherlands",
       "period": "Nov 2023 – Dec 2025",
-      "intro": "Backend engineering for a coach- and athlete-facing performance platform processing training and monitoring data.",
+      "intro": "Backend engineering for a coach- and athlete-facing performance platform processing training and monitoring data, as part of a wider engineering team.",
       "bullets": [
         "Developed and maintained backend services and application APIs for a coach- and athlete-facing performance platform.",
         "Built asynchronous pipelines processing time-series performance data used by analytics.",
@@ -69,8 +69,7 @@
       "bullets": [
         "Developed backend functionality with Django and related web technologies.",
         "Built and maintained REST APIs, data models, and business logic for livestock-management workflows.",
-        "Contributed marketplace and financial and operational features across backend and frontend components.",
-        "Worked on a livestock-management platform whose user base grew to more than 100 farmers."
+        "Contributed marketplace and financial and operational features across backend and frontend components."
       ]
     },
     {
