@@ -671,6 +671,16 @@
   margin-top: 0;
 }
 
+/* The evidence path is the scan target — accented, and its label sits
+   tighter to its content than the gap between blocks. */
+.project__subhead--evidence {
+  color: var(--rust-text);
+}
+
+.split__text .project__subhead + * {
+  margin-top: var(--space-xs);
+}
+
 .contribution {
   display: grid;
   gap: var(--space-2xs);
@@ -2063,7 +2073,6 @@
 }
 
 .evidence__title {
-  margin-top: 0.35rem;
   font-size: var(--step-2);
   letter-spacing: -0.01em;
 }

@@ -254,7 +254,7 @@ export function ProjectFeature({ project, reversed, onOpen }: ProjectFeatureProp
             ))}
           </ul>
 
-          <h4 className="project__subhead">Evidence and outcome</h4>
+          <h4 className="project__subhead project__subhead--evidence">Evidence and outcome</h4>
           <p className="project__body">{project.outcome}</p>
 
           {project.evidence && <Evidence evidence={project.evidence} />}
