@@ -38,6 +38,23 @@ export function Lightbox({ project, media, index, onNavigate, onClose }: Lightbo
     const previouslyFocused = document.activeElement as HTMLElement | null;
     dialogRef.current?.focus();
 
+    // Mark every branch outside the dialog inert as we walk up to #root, so
+    // the background leaves the tab order and the accessibility tree while
+    // the modal is open. `aria-modal` alone is not enough for all readers.
+    const inertNodes: Element[] = [];
+    let node: Element | null = dialogRef.current;
+    while (node?.parentElement) {
+      const parent = node.parentElement;
+      for (const child of Array.from(parent.children)) {
+        if (child !== node) {
+          child.setAttribute('inert', '');
+          inertNodes.push(child);
+        }
+      }
+      if (parent.id === 'root' || parent === document.body) break;
+      node = parent;
+    }
+
     const onKeyDown = (e: KeyboardEvent) => {
       const h = handlers.current;
       if (e.key === 'Escape') {
@@ -74,6 +91,7 @@ export function Lightbox({ project, media, index, onNavigate, onClose }: Lightbo
     document.addEventListener('keydown', onKeyDown, true);
     return () => {
       document.removeEventListener('keydown', onKeyDown, true);
+      inertNodes.forEach((el) => el.removeAttribute('inert'));
       previouslyFocused?.focus?.();
     };
   }, []);

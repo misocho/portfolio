@@ -914,7 +914,7 @@
   font-size: 0.64rem;
   letter-spacing: 0.06em;
   color: var(--muted);
-  background: color-mix(in srgb, var(--paper) 70%, transparent);
+  background: var(--paper);
   border: 1px solid var(--border);
   border-radius: 2px;
   padding: 0.2rem 0.6rem;
@@ -1313,6 +1313,12 @@
 
 .lightbox__title .idx {
   color: var(--rust-bright);
+}
+
+/* The modal sits on a dark surface, where the default rust ring is only
+   ~2.6:1; switch to paper (≈13:1) so focus stays clearly visible. */
+.lightbox :focus-visible {
+  outline-color: var(--paper);
 }
 
 .lightbox__close {
