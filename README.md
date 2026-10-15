@@ -184,6 +184,26 @@ VITE_BASE=/ npm run build      # for a user/org site
 VITE_BASE=/my-repo/ npm run build
 ```
 
+### Release checklist
+
+Run this before (and after) pushing to `main`:
+
+1. **Gate locally** — `npm run typecheck && npm run lint && npm run build`.
+   The build pre-renders into `dist/index.html` and **fails** if required content
+   is missing.
+2. **Push to `main`** — `.github/workflows/deploy.yml` runs the same gate, then
+   deploys. Record the Actions **run ID**.
+3. **Verify live** at `https://misocho.github.io/portfolio/`:
+   - `200` on `/`, `robots.txt`, `sitemap.xml`, `og-image.jpg`, `favicon.svg`,
+     `resume.pdf`, `resume.html`, `404.html`.
+   - Page **hydrates** (interactive nav, notes, gallery) with **no console
+     errors or hydration warnings**.
+   - `robots.txt` allows crawlers and points at `/portfolio/sitemap.xml`.
+   - Canonical/OG/Twitter tags match the deployed URL.
+
+> The site is a GitHub Pages **project** site, so the actionable `robots.txt`
+> lives at `/portfolio/robots.txt`; the host-root file belongs to GitHub.
+
 ---
 
 ## Project structure
@@ -251,15 +271,21 @@ Featured work leads with **EnkaAI** (`01`), then Beoflow (`02`) and Dorsa (`03`)
 
 ## Accessibility & performance
 
-- Semantic landmarks, a skip link, and visible focus rings throughout.
+- Semantic landmarks, a skip link, and visible focus rings throughout (the
+  gallery's dark surface swaps the rust ring for a paper one so it stays
+  legible).
 - The image gallery is a proper modal dialog: focus is trapped and restored,
-  `Escape` closes, arrow keys navigate, and body scroll is locked.
+  `Escape` closes, arrow keys navigate, body scroll is locked, and the rest of
+  the page is marked `inert` while it is open.
 - All motion respects `prefers-reduced-motion`; scroll reveals degrade to plain
-  visible content.
+  visible content and transition durations drop to `0ms`.
 - Colour pairs were checked against WCAG AA (see comments in
   `src/styles/tokens.css`).
 - Images carry intrinsic `width`/`height` (no layout shift) and are lazy-loaded
   below the fold. A print stylesheet produces a clean, ink-friendly résumé view.
+- Fonts are self-hosted and **latin-subset only** (the site is English; every
+  glyph used sits in the latin range), so the build ships 9 woff2 files instead
+  of the full per-script set.
 
 ---
 
