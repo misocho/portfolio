@@ -16,7 +16,7 @@ animation libraries. It exports to a fully static site for GitHub Pages.
 ```bash
 npm install
 npm run dev           # http://localhost:5173/portfolio/
-npm run build         # resume:build, then type-check, then build to dist/
+npm run build         # resume:build → type-check → client + SSR build → pre-render into dist/
 npm run preview       # serve the production build locally
 npm run resume:build  # regenerate public/resume.html from src/data/cv.json
 npm run typecheck     # tsc only
@@ -100,6 +100,61 @@ document opened in a browser), though nothing on the site links to it.
 
 ---
 
+## Static pre-rendering
+
+The site is a single-page React app, but the production build **pre-renders**
+it so the shipped `index.html` already contains the page's content. Without
+this, non-JS consumers (search crawlers, link unfurlers, text extractors) would
+see only an empty `<div id="root">`.
+
+How it works (`npm run build`):
+
+1. `vite build` → the client bundle and `dist/index.html`.
+2. `vite build --ssr src/entry-server.tsx` → a small Node bundle built from the
+   same `App`/components (`dist-ssr/`).
+3. `node scripts/prerender.mjs` → renders that bundle with `react-dom/server`,
+   injects the markup into `dist/index.html`, and **fails the build** if the
+   expected content is missing.
+
+In the browser, `src/main.tsx` **hydrates** the pre-rendered markup (falling
+back to a plain client render in `npm run dev`). No runtime server is involved
+— the output is still fully static.
+
+---
+
+## Crawlability (robots.txt & sitemap.xml)
+
+`public/robots.txt` and `public/sitemap.xml` are copied to the site at build
+time.
+
+> **GitHub Pages project sites:** crawlers look for the host-level
+> `https://<user>.github.io/robots.txt`, which belongs to GitHub and cannot be
+> overridden from a project. The `Sitemap:` line here is therefore
+> informational — submit the sitemap directly in **Google Search Console**
+> (`https://misocho.github.io/portfolio/sitemap.xml`).
+
+---
+
+## Analytics (Umami Cloud)
+
+Privacy-friendly, cookieless analytics via **https://cloud.umami.is**. The
+tracker is **opt-in by configuration**: it is injected only when
+`VITE_UMAMI_WEBSITE_ID` is set, so the site makes no third-party request until
+you provide an ID.
+
+1. Add the site in Umami Cloud and copy its **Website ID**.
+2. Set it locally in `.env.local` (see `.env.example`):
+   `VITE_UMAMI_WEBSITE_ID=<your-id>`
+3. For the deployed site, add a repository **Variable** (Settings → Secrets
+   and variables → Actions → Variables → `VITE_UMAMI_WEBSITE_ID`); the deploy
+   workflow passes it to the build.
+
+`src/lib/analytics.ts` loads the tracker and records page views (automatically)
+plus **outbound-link** and **file-download** events (e.g. the résumé PDF). It
+is a no-op when the ID is absent.
+
+---
+
 ## Deploying to GitHub Pages
 
 1. Push this project to a repository on GitHub.
@@ -107,6 +162,8 @@ document opened in a browser), though nothing on the site links to it.
    "GitHub Actions"**.
 3. Push to `main`. The workflow in `.github/workflows/deploy.yml` builds and
    deploys automatically.
+4. Optional: add the `VITE_UMAMI_WEBSITE_ID` repository **variable** to enable
+   analytics (see **Analytics** above).
 
 ### Base path (important)
 
@@ -134,21 +191,32 @@ src/
   data/           Content: cv.json (CV source of truth), site, projects, experience, skills, notes, nav
   hooks/          useReveal, useScrollSpy, useReducedMotion, useLockBodyScroll
   lib/asset.ts    Resolves /public paths against Vite's base
+  lib/analytics.ts   Optional Umami Cloud analytics (no-op without an ID)
+  entry-server.tsx   Build-time render entry for pre-rendering
+  main.tsx        Client entry: hydrates the pre-rendered markup
+  vite-env.d.ts   Typed import.meta.env (VITE_UMAMI_*)
   styles/         tokens → base → layout → components → print
 scripts/
   build-resume.mjs   cv.json + template → public/resume.html (no dependencies)
+  prerender.mjs      Renders the SSR bundle into dist/index.html
 resume/
   resume.template.html   Branded A4 template (with content markers)
 public/
   resume.html     Generated printable CV (self-contained; do not edit by hand)
   brian-misocho-moranga-resume.pdf   Downloadable PDF (printed from resume.html)
+  robots.txt      Crawl rules + sitemap reference
+  sitemap.xml     Single-page sitemap
   media/enkaai/   Prototype screenshots (own work; demo/fixture data only)
   media/beoflow/  Published Beoflow imagery
   media/dorsa/    Published Dorsa imagery + product-suite icons
   og-image.jpg    Social preview (1200×630)
   favicon.svg     404.html  .nojekyll
 resume.md         Full prose master for the résumé (reference, not the PDF source)
+.env.example      Sample environment variables (no secrets)
 ```
+
+> Build output: `dist/` (the static site) and `dist-ssr/` (the temporary SSR
+> bundle used by the pre-render step; git-ignored).
 
 ---
 

@@ -45,6 +45,9 @@ jobs:
           # The line below auto-detects the repo name, which is correct for a
           # PROJECT site. For a USER/ORG site, replace it with: VITE_BASE: /
           VITE_BASE: /${{ github.event.repository.name }}/
+          # Umami Cloud Website ID. Set it under Settings → Secrets and
+          # variables → Actions → Variables. When unset, analytics is disabled.
+          VITE_UMAMI_WEBSITE_ID: ${{ vars.VITE_UMAMI_WEBSITE_ID }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

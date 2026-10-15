@@ -14,6 +14,7 @@ import '@fontsource/ibm-plex-mono/500.css';
 
 import './styles/index.css';
 import { App } from './App';
+import { initAnalytics } from './lib/analytics';
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Root element #root not found');
@@ -33,3 +34,6 @@ if (container.hasChildNodes()) {
 } else {
   createRoot(container).render(app);
 }
+
+// No-op unless VITE_UMAMI_WEBSITE_ID is configured.
+initAnalytics();
