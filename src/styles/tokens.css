@@ -1,0 +1,93 @@
+/* =========================================================================
+   tokens.css — FIELD NOTES design tokens
+   Warm paper, ink, a single rust accent, forest/sage secondary.
+   Every contrasting pair below was checked for WCAG AA.
+   ========================================================================= */
+
+:root {
+  /* ---- Colour ------------------------------------------------------- */
+  --paper: #f3efe6;          /* page background                       */
+  --paper-raise: #efeaDE;    /* faint lift above paper                */
+  --surface: #e9e3d7;        /* secondary surfaces                    */
+  --surface-2: #e2dbcb;      /* deeper surface (plates, thumbnails)   */
+  --ink: #292d28;            /* primary text          12.2:1 on paper */
+  --muted: #686a60;          /* secondary text         4.8:1 on paper */
+  --rust: #a6533a;           /* accent: rules, numerals, decoration   */
+  --rust-text: #8f3f27;      /* AA links on paper/surface             */
+  --rust-bright: #e29a7c;    /* accent on dark  5.6:1 on forest       */
+  --forest: #27352d;         /* deep green surface                    */
+  --sage: #879486;           /* muted green (large / decorative)      */
+  --sage-dim: #b9bfaf;       /* secondary text on dark  6.8:1         */
+  --border: #d7d0c3;         /* hairlines                             */
+  --border-strong: #c3bba9;
+
+  /* Dorsa-specific accents (kept inside the shared system) */
+  --dorsa-grid: rgba(39, 53, 45, 0.10);
+  --dorsa-line: #9fb0a2;
+
+  /* ---- Typefaces ---------------------------------------------------- */
+  --font-serif: 'Newsreader', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', 'Menlo', 'Consolas', monospace;
+
+  /* ---- Fluid type scale (min 360px, max 1280px) --------------------- */
+  --step--2: clamp(0.72rem, 0.70rem + 0.10vw, 0.78rem);
+  --step--1: clamp(0.82rem, 0.79rem + 0.14vw, 0.90rem);
+  --step-0:  clamp(1.00rem, 0.96rem + 0.20vw, 1.12rem);
+  --step-1:  clamp(1.20rem, 1.12rem + 0.40vw, 1.45rem);
+  --step-2:  clamp(1.48rem, 1.33rem + 0.76vw, 2.00rem);
+  --step-3:  clamp(1.86rem, 1.56rem + 1.50vw, 2.90rem);
+  --step-4:  clamp(2.36rem, 1.78rem + 2.90vw, 4.20rem);
+  --step-5:  clamp(2.90rem, 1.90rem + 5.00vw, 6.20rem);
+  --step-6:  clamp(3.40rem, 1.80rem + 8.00vw, 8.50rem);
+
+  /* ---- Line heights & measures -------------------------------------- */
+  --lh-tight: 1.04;
+  --lh-snug: 1.16;
+  --lh-body: 1.62;
+  --measure: 66ch;
+  --measure-narrow: 46ch;
+
+  /* ---- Spacing ------------------------------------------------------ */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.25rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 5rem;
+  --space-3xl: 7.5rem;
+
+  /* ---- Layout ------------------------------------------------------- */
+  --gutter: clamp(1.15rem, 0.6rem + 3vw, 3.25rem);
+  --maxw: 1240px;
+  --maxw-wide: 1480px;
+  --radius: 3px;
+  --radius-lg: 5px;
+
+  /* ---- Motion ------------------------------------------------------- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 130ms;
+  --dur-2: 220ms;
+  --dur-3: 380ms;
+  --dur-4: 620ms;
+
+  /* ---- Shadows (used sparingly) ------------------------------------- */
+  --shadow-plate: 0 1px 0 rgba(39, 53, 45, 0.04), 0 14px 40px -28px rgba(39, 53, 45, 0.45);
+  --shadow-lift: 0 2px 0 rgba(39, 53, 45, 0.04), 0 26px 60px -34px rgba(39, 53, 45, 0.5);
+
+  /* ---- Misc --------------------------------------------------------- */
+  --focus: 2px solid var(--rust);
+  --focus-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-1: 0ms;
+    --dur-2: 0ms;
+    --dur-3: 0ms;
+    --dur-4: 0ms;
+  }
+}

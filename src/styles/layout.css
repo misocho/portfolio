@@ -1,0 +1,150 @@
+/* =========================================================================
+   layout.css — containers, section rhythm, editorial grids
+   ========================================================================= */
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--wide {
+  max-width: var(--maxw-wide);
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(4.5rem, 3rem + 7vw, 9rem);
+}
+
+.section + .section {
+  border-top: 1px solid var(--border);
+}
+
+.section--tight {
+  padding-block: clamp(3.2rem, 2rem + 5vw, 6rem);
+}
+
+.section--forest {
+  background: var(--forest);
+  color: var(--paper);
+}
+
+.section--forest a {
+  color: var(--rust-bright);
+}
+
+.section--forest .label {
+  color: var(--sage-dim);
+}
+
+/* ---- Section masthead --------------------------------------------- */
+.masthead {
+  display: grid;
+  gap: var(--space-s);
+  margin-bottom: clamp(2.4rem, 1.6rem + 3vw, 4.2rem);
+}
+
+.masthead__index {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-s);
+}
+
+.masthead__num {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  color: var(--rust-text);
+}
+
+.masthead__title {
+  font-size: var(--step-3);
+  max-width: 20ch;
+}
+
+.masthead__deck {
+  max-width: var(--measure);
+  color: var(--muted);
+  font-size: var(--step-1);
+  line-height: 1.45;
+}
+
+.section--forest .masthead__deck {
+  color: var(--sage-dim);
+}
+
+/* A thin rule with a small leading tick, like a printed section break */
+.leader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  color: var(--border-strong);
+}
+
+.leader::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ---- Two-column editorial split ----------------------------------- */
+.split {
+  display: grid;
+  gap: clamp(1.6rem, 1rem + 4vw, 4.5rem);
+}
+
+@media (min-width: 900px) {
+  .split--work {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: center;
+  }
+
+  .split--work.is-reversed {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  }
+
+  .split--work.is-reversed .split__text {
+    order: 2;
+  }
+
+  .split--work.is-reversed .split__media {
+    order: 1;
+  }
+}
+
+.stack > * + * {
+  margin-top: var(--space-s);
+}
+
+.stack--l > * + * {
+  margin-top: var(--space-l);
+}
+
+/* ---- Grids --------------------------------------------------------- */
+.grid-notes {
+  display: grid;
+  gap: var(--space-m);
+}
+
+@media (min-width: 760px) {
+  .grid-notes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.timeline {
+  display: grid;
+  gap: 0;
+}
+
+@media (min-width: 820px) {
+  .grid-about {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 1rem + 5vw, 5rem);
+    align-items: start;
+  }
+}

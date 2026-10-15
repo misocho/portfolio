@@ -1,0 +1,118 @@
+{
+  "name": "Brian Misocho Morang’a",
+  "title": "Senior Backend Software Engineer — Python, Distributed Systems & AI Engineering",
+  "location": "Nairobi, Kenya",
+  "email": "morangabrian04@gmail.com",
+  "phone": "+254 798 734 967",
+  "github": "https://github.com/misocho",
+  "linkedin": "https://www.linkedin.com/in/brian-moranga-775917369/",
+  "summary": "Senior Backend Software Engineer with 6+ years of experience building software across AI-enabled products, healthcare technology, sports performance analytics, and business operations. Experienced in Python backend development, API design, asynchronous processing, data pipelines, and cloud-native systems. Combines practical software engineering with AI integration, emphasizing validated data, explicit business logic, system reliability, and maintainable architectures.",
+  "roles": [
+    {
+      "org": "EnkaAI",
+      "title": "Part-Time Backend Engineering Consultant",
+      "location": "Nairobi, Kenya",
+      "period": "Aug 2026 – Present",
+      "current": true,
+      "intro": "An AI-powered procurement and operations platform connecting existing business systems, operational data, supplier communications, and documents.",
+      "bullets": [
+        "Took the platform from idea to a beta with testing customers in three months.",
+        "Design and build backend services and APIs with Python, FastAPI, PostgreSQL, and Docker, plus data models for procurement, suppliers, purchase orders, invoices, and operational exceptions.",
+        "Implemented strict validation and normalization for imported operational data, with LLM-assisted extraction behind deterministic business rules.",
+        "Added human approval workflows and auditing for consequential actions, and automated coverage for import correctness and idempotent processing."
+      ]
+    },
+    {
+      "org": "DevCentreHouse",
+      "title": "Software Engineer",
+      "location": "Remote · Ireland",
+      "period": "Feb 2026 – Aug 2026",
+      "intro": "Software engineering across backend services, APIs, and asynchronous processing for AI-enabled applications.",
+      "bullets": [
+        "Developed and maintained backend services and REST APIs for AI-enabled applications.",
+        "Built asynchronous processing pipelines and service integrations that move work off the request-response path.",
+        "Kept business rules explicit alongside AI capabilities, and supported maintainability and code quality."
+      ]
+    },
+    {
+      "org": "Beoflow B.V.",
+      "title": "Backend Engineer",
+      "location": "Remote · Netherlands",
+      "period": "Nov 2023 – Dec 2025",
+      "intro": "Backend engineering for a coach- and athlete-facing performance platform processing training and monitoring data.",
+      "bullets": [
+        "Developed and maintained backend services and application APIs for a coach- and athlete-facing performance platform.",
+        "Built asynchronous pipelines processing time-series performance data used by analytics.",
+        "Contributed a Rust-based optimization that cut processing time by more than 80% for the relevant workload.",
+        "Integrated AI-enabled analytics into existing workflows."
+      ]
+    },
+    {
+      "org": "Dorsa AI",
+      "title": "Backend Lead",
+      "location": "Remote · United States",
+      "period": "Jan 2021 – Oct 2023",
+      "intro": "Backend systems for an AI-enabled perioperative-care platform supporting time-sensitive operating-room workflows.",
+      "bullets": [
+        "Led backend architecture and development for an AI-enabled perioperative-care platform.",
+        "Built and maintained backend services and APIs, and orchestrated NLP and AI-enabled workflows.",
+        "Worked with Docker and AWS infrastructure to support deployment and operation.",
+        "Contributed to product and workflow improvements associated with approximately 15 minutes less surgical turnover per procedure (a team- and product-level outcome)."
+      ]
+    },
+    {
+      "org": "Infocap Enterprises",
+      "title": "Software Developer",
+      "location": "Nairobi, Kenya",
+      "period": "Nov 2019 – Jan 2021",
+      "intro": "Software development for a livestock-management platform serving farmers and related business operations.",
+      "bullets": [
+        "Developed backend functionality with Django and related web technologies.",
+        "Built and maintained REST APIs, data models, and business logic for livestock-management workflows.",
+        "Contributed marketplace and financial and operational features across backend and frontend components.",
+        "Worked on a livestock-management platform whose user base grew to more than 100 farmers."
+      ]
+    },
+    {
+      "org": "Andela Kenya",
+      "title": "Software Engineering Intern",
+      "location": "Nairobi, Kenya",
+      "period": "May 2019 – Oct 2019",
+      "intro": "Foundational experience in web application engineering, backend development, and collaborative delivery.",
+      "bullets": [
+        "Built web application features using Python, Django, and React.",
+        "Contributed to API development and dashboard and reporting interfaces in an aid-distribution context.",
+        "Worked within a collaborative, source-controlled, and tested engineering workflow."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "title": "Languages & Frameworks",
+      "items": ["Python", "FastAPI", "Django", "Django REST Framework", "Flask", "TypeScript", "JavaScript", "React", "Next.js", "Node.js", "NestJS", "SQL"]
+    },
+    {
+      "title": "Data & Storage",
+      "items": ["PostgreSQL", "MySQL", "Redis", "pgvector", "Relational data modeling", "Schema evolution", "Data validation and normalization", "Time-series processing", "Ingestion pipelines", "Migrations", "Idempotent processing"]
+    },
+    {
+      "title": "Cloud & DevOps",
+      "items": ["AWS (ECS, Lambda, RDS, S3)", "Docker", "CI/CD", "GitHub Actions", "Environment configuration", "Deployment and troubleshooting"]
+    },
+    {
+      "title": "Systems & Architecture",
+      "items": ["REST API design", "Distributed systems", "Microservices", "Asynchronous processing", "Event-driven architecture", "Workflow orchestration", "External integrations", "Error handling", "Auditing and traceability", "Performance optimization", "Testing"]
+    },
+    {
+      "title": "AI Engineering",
+      "items": ["LLM integrations", "Structured extraction", "Document processing", "Classification", "Deterministic business rules", "Output validation", "Human-reviewed workflows"]
+    }
+  ],
+  "education": [
+    {
+      "org": "Kisii University",
+      "qualification": "BSc Mathematics with Computing",
+      "period": "Sep 2016 – Dec 2023"
+    }
+  ]
+}

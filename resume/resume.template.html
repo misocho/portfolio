@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Brian Misocho Morang’a — CV</title>
+    <style>
+      /* ------------------------------------------------------------------
+         GENERATED FILE — do not edit by hand.
+         Source: src/data/cv.json + resume/resume.template.html
+         Regenerate: npm run resume:build
+         Self-contained, on-brand A4 CV. Fonts are inlined as data URIs so the
+         file prints identically from disk, from the site, or over HTTP.
+         ------------------------------------------------------------------ */
+
+      /*__FONT_FACES__*/
+
+      :root {
+        --paper: #f3efe6;
+        --ink: #292d28;
+        --muted: #5f6157;
+        --rust: #a6533a;
+        --rust-text: #8f3f27;
+        --forest: #27352d;
+        --sage: #6f7d70;
+        --border: #d7d0c3;
+        --border-strong: #c3bba9;
+      }
+
+      @page {
+        size: A4;
+        margin: 12mm 14mm 10mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 9.6pt;
+        line-height: 1.34;
+        color: var(--ink);
+        background: #fff;
+        font-variant-numeric: tabular-nums;
+      }
+
+      a {
+        color: var(--rust-text);
+        text-decoration: none;
+      }
+
+      p {
+        margin: 0 0 0.5em;
+      }
+
+      /* ---- Header ---------------------------------------------------- */
+      .head {
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 1.6mm;
+        margin-bottom: 3mm;
+      }
+
+      .head__kicker {
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        font-size: 7.5pt;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--rust);
+        margin: 0 0 0.9mm;
+      }
+
+      .head h1 {
+        font-family: 'Newsreader', Georgia, serif;
+        font-weight: 600;
+        font-size: 20pt;
+        line-height: 1.02;
+        letter-spacing: -0.01em;
+        margin: 0 0 0.7mm;
+      }
+
+      .head__title {
+        font-size: 10.4pt;
+        font-weight: 500;
+        color: var(--forest);
+        margin: 0 0 1.4mm;
+        max-width: 62ch;
+      }
+
+      .head__contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.3mm 3.6mm;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        font-size: 7.8pt;
+        color: var(--muted);
+      }
+
+      .head__contact li {
+        display: inline-flex;
+        align-items: center;
+        gap: 1.8mm;
+      }
+
+      .head__contact li + li::before {
+        content: '';
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--border-strong);
+        margin-right: 1.6mm;
+      }
+
+      /* ---- Sections -------------------------------------------------- */
+      .section {
+        margin-bottom: 3.4mm;
+      }
+
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section > h2 {
+        display: flex;
+        align-items: center;
+        gap: 2.4mm;
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        font-size: 8pt;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink);
+        margin: 0 0 1.6mm;
+        padding-bottom: 0.8mm;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .section > h2::before {
+        content: '';
+        width: 5mm;
+        height: 2px;
+        background: var(--rust);
+        flex: none;
+      }
+
+      .lead {
+        font-size: 9.6pt;
+        color: var(--ink);
+        text-align: left;
+        hyphens: auto;
+        max-width: 92ch;
+      }
+
+      /* ---- Experience ------------------------------------------------ */
+      .role {
+        margin-bottom: 3mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .role:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+
+      .role__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4mm;
+        break-after: avoid;
+      }
+
+      .role__org {
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: 12.4pt;
+        font-weight: 600;
+        color: var(--ink);
+        margin: 0;
+        line-height: 1.1;
+      }
+
+      .role__role {
+        font-size: 10.4pt;
+        font-weight: 600;
+        color: var(--rust-text);
+        margin: 0.4mm 0 0;
+      }
+
+      .role__when {
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        font-size: 8pt;
+        letter-spacing: 0.04em;
+        color: var(--muted);
+        text-align: right;
+        white-space: nowrap;
+        margin: 0;
+      }
+
+      .role__when span {
+        display: block;
+      }
+
+      .role__intro {
+        margin: 0.7mm 0;
+        font-size: 9.4pt;
+        color: var(--ink);
+      }
+
+      .role ul {
+        margin: 1mm 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .role ul li {
+        position: relative;
+        padding-left: 3.6mm;
+        margin: 0 0 0.9mm;
+        font-size: 9.4pt;
+        break-inside: avoid;
+      }
+
+      .role ul li:last-child {
+        margin-bottom: 0;
+      }
+
+      .role ul li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 1.85mm;
+        width: 2.6mm;
+        height: 1px;
+        background: var(--rust);
+      }
+
+      .role ul li strong {
+        font-weight: 600;
+        color: var(--forest);
+      }
+
+      /* ---- Skills ---------------------------------------------------- */
+      .skills {
+        display: grid;
+        gap: 1.5mm;
+      }
+
+      .skill-row {
+        font-size: 9.4pt;
+        margin: 0;
+        break-inside: avoid;
+      }
+
+      .skill-row b {
+        font-family: 'Newsreader', Georgia, serif;
+        font-weight: 600;
+        color: var(--forest);
+        font-size: 10.2pt;
+      }
+
+      .skill-row span {
+        color: var(--ink);
+      }
+
+      /* ---- Education ------------------------------------------------- */
+      .edu {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4mm;
+      }
+
+      .edu h3 {
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: 11.4pt;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .edu .edu__when {
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        font-size: 8pt;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .edu__detail {
+        font-size: 9.4pt;
+        margin: 0.5mm 0 0;
+      }
+
+      .foot {
+        margin-top: 4mm;
+        padding-top: 2mm;
+        border-top: 1px solid var(--border);
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        font-size: 7.6pt;
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+        gap: 4mm;
+      }
+    </style>
+  </head>
+  <body>
+    <!--__HEADER__-->
+
+    <section class="section">
+      <h2>Professional Summary</h2>
+      <p class="lead"><!--__SUMMARY__--></p>
+    </section>
+
+    <section class="section">
+      <h2>Professional Experience</h2>
+      <!--__ROLES__-->
+    </section>
+
+    <section class="section">
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <!--__SKILLS__-->
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Education</h2>
+      <!--__EDUCATION__-->
+    </section>
+
+    <!--__FOOTER__-->
+  </body>
+</html>

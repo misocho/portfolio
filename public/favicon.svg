@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Field Notes monogram">
+  <rect width="64" height="64" rx="6" fill="#F3EFE6"/>
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="5.25" fill="none" stroke="#D7D0C3" stroke-width="1.5"/>
+  <g fill="none" stroke="#A6533A" stroke-width="3" stroke-linecap="round">
+    <path d="M20 46V18"/>
+    <path d="M20 18h22"/>
+    <path d="M20 31h15"/>
+  </g>
+  <g fill="#292D28">
+    <rect x="44" y="42" width="4" height="4"/>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+/* =========================================================================
+   print.css — a tidy, ink-friendly version
+   ========================================================================= */
+
+@media print {
+  :root {
+    --paper: #ffffff;
+    --paper-raise: #ffffff;
+    --surface: #f4f4f4;
+    --surface-2: #efefef;
+  }
+
+  body {
+    background: #fff;
+    color: #111;
+    font-size: 11pt;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .nav,
+  .progress,
+  .hero__figure,
+  .plate__caption,
+  .lightbox,
+  .back-to-top,
+  .nav__drawer {
+    display: none !important;
+  }
+
+  .section {
+    padding-block: 1.4rem;
+    break-inside: avoid;
+  }
+
+  .section + .section {
+    border-top: 1px solid #ccc;
+  }
+
+  a {
+    color: #111;
+    text-decoration: underline;
+  }
+
+  .section--forest {
+    background: #fff;
+    color: #111;
+  }
+
+  .section--forest a,
+  .section--forest .label {
+    color: #111;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .window,
+  .phone,
+  .dorsa-stage,
+  .enkaai-spread,
+  .workshop__figure,
+  .note,
+  .evidence {
+    box-shadow: none !important;
+    border-color: #ccc;
+  }
+}
