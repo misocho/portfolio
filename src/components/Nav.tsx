@@ -49,10 +49,14 @@ export function Nav({ activeId }: NavProps) {
   return (
     <header className={`nav${scrolled ? ' nav--scrolled' : ''}`}>
       <div className="container nav__inner">
-        <a className="nav__lockup" href="#top" aria-label="Back to top — Field Notes">
+        <a
+          className="nav__lockup"
+          href="#top"
+          aria-label={`Back to top — Field Notes by ${site.name}`}
+        >
           <span className="nav__mark">Field Notes</span>
           <span className="nav__edition" aria-hidden="true">
-            Portfolio 2026
+            {site.name}
           </span>
         </a>
 

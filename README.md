@@ -40,8 +40,10 @@ from `cv.json`).
 | What | Where | Note |
 |---|---|---|
 | Name, email, GitHub, LinkedIn | `src/data/cv.json` | Single source of truth for the CV; `site.ts` reads them from here. Supplied. |
+| Location | `src/data/cv.json` → `location` | Shown in the hero byline. Supplied. |
 | Résumé PDF | `src/data/site.ts` → `resume` | Supplied: `'/brian-misocho-moranga-resume.pdf'`. See **Résumé** below. |
-| Availability line | `src/data/site.ts` → `availability` | Optional. Leave `null` unless it is accurate and you keep it current. |
+| Availability line | `src/data/site.ts` → `availability` | Supplied: `'Open to senior backend / AI systems roles'`. Keep it accurate and current; rendered in the hero and the wide-nav status chip. |
+| Public source repository | `src/data/site.ts` → `source` | Supplied: `'https://github.com/misocho/portfolio'`, linked from the footer as inspectable proof of work. |
 | Canonical URL | `src/data/site.ts` → `url` | Optional; for metadata. |
 | Base path | `vite.config.ts` | `VITE_BASE` env var; default `'/portfolio/'`. |
 | A genuine Dorsa screenshot | `public/media/dorsa/` + `src/data/projects.ts` | See **Media honesty** below. |

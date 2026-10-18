@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { site } from '../data/site';
-import { ArrowRight } from './icons';
+import { ArrowRight, ArrowUpRight } from './icons';
 
 const ink = { stroke: 'var(--ink)' } as const;
 const rust = { stroke: 'var(--rust)' } as const;
@@ -282,6 +282,10 @@ export function Hero() {
           <h1 className="hero__title">
             Notes from the <em>backend</em>.
           </h1>
+          <p className="hero__byline">
+            {site.name}
+            <span className="hero__byline-place"> · {site.location}</span>
+          </p>
           <p className="hero__role">
             Senior Backend Engineer · AI Systems · Distributed Systems · Python
           </p>
@@ -292,6 +296,12 @@ export function Hero() {
             operations. What follows is an honest record of the work, the engineering decisions
             behind it, and the evidence behind each claim.
           </p>
+          {site.availability && (
+            <p className="hero__status">
+              <span className="dot" aria-hidden="true" />
+              {site.availability}
+            </p>
+          )}
           <div className="hero__actions">
             <a className="btn btn--primary" href="#work">
               Explore selected work
@@ -300,6 +310,20 @@ export function Hero() {
             <a className="btn btn--ghost" href="#cv">
               View CV
               <ArrowRight width={14} height={14} />
+            </a>
+          </div>
+          <div className="hero__links">
+            <a className="arrow-link" href={site.github}>
+              GitHub
+              <ArrowUpRight width={13} height={13} />
+            </a>
+            <a className="arrow-link" href={site.linkedin}>
+              LinkedIn
+              <ArrowUpRight width={13} height={13} />
+            </a>
+            <a className="arrow-link" href={`mailto:${site.email}`}>
+              Email
+              <ArrowUpRight width={13} height={13} />
             </a>
           </div>
           <div className="hero__ribbon" aria-label="Areas of focus">

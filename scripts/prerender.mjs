@@ -47,6 +47,7 @@ const html = template.replace(marker, `<div id="root">${appHtml}</div>`);
 // prerender is broken and the build should stop.
 const required = [
   'Notes from the', // hero heading
+  'Brian Misocho', // author byline — hero and nav identity
   'EnkaAI',
   'Beoflow',
   'Dorsa AI',
