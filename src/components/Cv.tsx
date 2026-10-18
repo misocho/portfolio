@@ -2,7 +2,7 @@ import { cv } from '../data/cv';
 import { hasLink, site } from '../data/site';
 import { asset } from '../lib/asset';
 import { SectionMasthead } from './SectionMasthead';
-import { Download, GitHub, LinkedIn, Mail } from './icons';
+import { Download, ArrowUpRight, GitHub, LinkedIn, Mail } from './icons';
 
 /**
  * Cv — the on-site, read-only presentation of the CV.
@@ -16,10 +16,10 @@ export function Cv() {
     <section className="section" id="cv">
       <div className="container">
         <SectionMasthead
-          num="05"
+          num="06"
           label="Curriculum vitae"
-          title="The full record."
-          deck="The complete CV — every role, the detail behind it, and a copy to take with you."
+          title="The record, in brief."
+          deck="Education, technical breadth, and the complete CV as a PDF — the authoritative role-by-role history."
           minor
         />
 
@@ -29,6 +29,15 @@ export function Cv() {
               <a className="btn btn--primary" href={asset(site.resume)} download>
                 <Download width={14} height={14} />
                 Download PDF
+              </a>
+              <a
+                className="btn btn--ghost"
+                href={asset('/resume.html')}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Open print version
+                <ArrowUpRight width={14} height={14} />
               </a>
             </div>
           )}
@@ -63,33 +72,6 @@ export function Cv() {
           </ul>
 
           <p className="cv__summary">{cv.summary}</p>
-
-          <div className="cv__block">
-            <h3 className="cv__block-title">Experience</h3>
-            <div className="cv__roles">
-              {cv.roles.map((role) => (
-                <article className="cv__role" key={`${role.org}-${role.period}`}>
-                  <div className="cv__role-head">
-                    <div>
-                      <h4 className="cv__role-org">{role.org}</h4>
-                      <p className="cv__role-title">
-                        {role.title} <span className="cv__role-loc">· {role.location}</span>
-                      </p>
-                    </div>
-                    <p className="cv__role-when">{role.period}</p>
-                  </div>
-                  {role.intro && <p className="cv__role-intro">{role.intro}</p>}
-                  {role.bullets.length > 0 && (
-                    <ul className="cv__role-list">
-                      {role.bullets.map((bullet) => (
-                        <li key={bullet}>{bullet}</li>
-                      ))}
-                    </ul>
-                  )}
-                </article>
-              ))}
-            </div>
-          </div>
 
           <div className="cv__block">
             <h3 className="cv__block-title">Skills</h3>

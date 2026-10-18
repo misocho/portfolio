@@ -6,7 +6,7 @@ export function AboutExperience() {
     <section className="section" id="about">
       <div className="container">
         <SectionMasthead
-          num="03"
+          num="04"
           label="About & experience"
           title="Mostly backend, always about the people using it."
           minor

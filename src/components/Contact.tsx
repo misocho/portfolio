@@ -77,7 +77,18 @@ export function Footer() {
 
         <div className="footer__closing">
           <span>© {year} {site.name}</span>
-          <span>Built with React, TypeScript &amp; Vite</span>
+          <span>
+            Built with React, TypeScript &amp; Vite ·{' '}
+            <a
+              className="footer__source"
+              href={site.source}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Source on GitHub
+              <ArrowUpRight width={12} height={12} />
+            </a>
+          </span>
         </div>
       </div>
     </footer>

@@ -1,3 +1,5 @@
+import { SectionMasthead } from './SectionMasthead';
+
 const mono = { fontFamily: 'var(--font-mono)' } as const;
 
 const loopStages = ['Observe', 'Reason', 'Recommend', 'Execute', 'Verify'];
@@ -104,10 +106,14 @@ export function InsideTheBuild() {
   return (
     <section className="section section--tight" id="workshop">
       <div className="container">
+        <SectionMasthead
+          num="02"
+          label="System design"
+          title="How EnkaAI keeps AI accountable."
+          deck="The part of the system least visible in a screenshot: how a recommendation becomes an accountable action."
+        />
         <div className="workshop">
           <div data-reveal>
-            <span className="workshop__stamp">Inside the build</span>
-            <h2 className="workshop__title">How EnkaAI keeps AI accountable.</h2>
             <p className="project__body">
               EnkaAI is built so AI helps with the messy parts — reading documents and supplier
               messages — without ever holding the pen on a decision that costs money. Extraction

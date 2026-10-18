@@ -7,6 +7,31 @@ const rust = { stroke: 'var(--rust)' } as const;
 const monoLabel = { fill: 'var(--muted)', fontFamily: 'var(--font-mono)' } as const;
 const inkLabel = { fill: 'var(--ink)', fontFamily: 'var(--font-mono)' } as const;
 
+/**
+ * One-line routes into the strongest work. Each line restates a claim that is
+ * already qualified in the case study — nothing new is asserted here.
+ */
+const selectedWork = [
+  {
+    id: 'enkaai',
+    num: '01',
+    name: 'EnkaAI',
+    line: 'AI procurement — deterministic rules over LLM extraction, human-approved actions.',
+  },
+  {
+    id: 'beoflow',
+    num: '02',
+    name: 'Beoflow',
+    line: 'Time-series processing — readiness recomputation from seconds to milliseconds.',
+  },
+  {
+    id: 'dorsa',
+    num: '03',
+    name: 'Dorsa AI',
+    line: 'Perioperative care — backend services, multi-tenancy and NLP workflow orchestration.',
+  },
+];
+
 const nodes = [
   { y: 112, label: '01 · INGEST' },
   { y: 190, label: '02 · QUEUE' },
@@ -326,12 +351,20 @@ export function Hero() {
               <ArrowUpRight width={13} height={13} />
             </a>
           </div>
-          <div className="hero__ribbon" aria-label="Areas of focus">
-            <span>Python</span>
-            <span>Backend systems</span>
-            <span>Time-series data</span>
-            <span>AI workflows</span>
-            <span>Rust</span>
+          <div className="hero__index">
+            <p className="hero__index-label">Selected work</p>
+            <ol className="hero__index-list" role="list">
+              {selectedWork.map((item) => (
+                <li key={item.id}>
+                  <a className="hero__index-link" href={`#${item.id}`}>
+                    <span className="hero__index-num">{item.num}</span>
+                    <span className="hero__index-name">{item.name}</span>
+                    <span className="hero__index-line">{item.line}</span>
+                    <ArrowUpRight className="hero__index-arrow" width={12} height={12} />
+                  </a>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
 

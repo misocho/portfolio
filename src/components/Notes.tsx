@@ -9,7 +9,7 @@ export function Notes() {
     <section className="section" id="notes">
       <div className="container">
         <SectionMasthead
-          num="02"
+          num="03"
           label="Notes"
           title="How I like to work."
           deck="Short notes on the judgment calls behind the code — the engineering thinking that does not fit neatly on a résumé."

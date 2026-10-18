@@ -57,8 +57,9 @@ details, professional summary, roles (with intro and bullets), skills and
 education. Everything else is generated from it, so the website and the paperwork
 can never drift apart:
 
-- **On-site CV** — the `#cv` section (`src/components/Cv.tsx`) renders `cv.json`
-  live and read-only inside the portfolio.
+- **On-site CV** — the `#cv` section (`src/components/Cv.tsx`) renders the
+  essentials from `cv.json` — contact, professional summary, skills and
+  education — and points to the PDF for the full role-by-role history.
 - **Printable CV** — `public/resume.html`, a self-contained, on-brand A4 document.
 - **Downloadable PDF** — `public/brian-misocho-moranga-resume.pdf`.
 

@@ -6,7 +6,7 @@ export function Skills() {
     <section className="section" id="skills">
       <div className="container">
         <SectionMasthead
-          num="04"
+          num="05"
           label="Skills"
           title="Tools and areas of focus."
           deck="What I reach for, and the kind of problems they are for."

@@ -27,11 +27,11 @@ export function App() {
       <main id="main">
         <Hero />
         <WorkSection />
+        <InsideTheBuild />
         <Notes />
         <AboutExperience />
         <Skills />
         <Cv />
-        <InsideTheBuild />
         <section className="section section--forest" id="contact">
           <Contact />
           <Footer />
