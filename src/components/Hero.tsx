@@ -7,31 +7,6 @@ const rust = { stroke: 'var(--rust)' } as const;
 const monoLabel = { fill: 'var(--muted)', fontFamily: 'var(--font-mono)' } as const;
 const inkLabel = { fill: 'var(--ink)', fontFamily: 'var(--font-mono)' } as const;
 
-/**
- * One-line routes into the strongest work. Each line restates a claim that is
- * already qualified in the case study — nothing new is asserted here.
- */
-const selectedWork = [
-  {
-    id: 'enkaai',
-    num: '01',
-    name: 'EnkaAI',
-    line: 'AI procurement — deterministic rules over LLM extraction, human-approved actions.',
-  },
-  {
-    id: 'beoflow',
-    num: '02',
-    name: 'Beoflow',
-    line: 'Time-series processing — readiness recomputation from seconds to milliseconds.',
-  },
-  {
-    id: 'dorsa',
-    num: '03',
-    name: 'Dorsa AI',
-    line: 'Perioperative care — backend services, multi-tenancy and NLP workflow orchestration.',
-  },
-];
-
 const nodes = [
   { y: 112, label: '01 · INGEST' },
   { y: 190, label: '02 · QUEUE' },
@@ -105,13 +80,7 @@ function HeroSchematic({ activeIndex }: { activeIndex: number }) {
       </text>
 
       {/* pipeline spine */}
-      <path
-        d="M84 96 V372"
-        fill="none"
-        style={ink}
-        strokeWidth={1.5}
-        data-anim="draw"
-      />
+      <path d="M84 96 V372" fill="none" style={ink} strokeWidth={1.5} />
 
       {/* nodes */}
       {nodes.map((n, i) => {
@@ -151,7 +120,6 @@ function HeroSchematic({ activeIndex }: { activeIndex: number }) {
         style={rust}
         strokeWidth={1.2}
         strokeDasharray="4 4"
-        data-anim="draw"
       />
 
       {/* chart panel */}
@@ -314,13 +282,6 @@ export function Hero() {
           <p className="hero__role">
             Senior Backend Engineer · AI Systems · Distributed Systems · Python
           </p>
-          <p className="hero__lede">
-            Senior backend engineer with seven years across AI systems and distributed systems. I
-            design and build services, APIs and data pipelines — asynchronous processing, strict
-            validation and explicit business rules — for products in healthcare, sport and
-            operations. What follows is an honest record of the work, the engineering decisions
-            behind it, and the evidence behind each claim.
-          </p>
           {site.availability && (
             <p className="hero__status">
               <span className="dot" aria-hidden="true" />
@@ -337,6 +298,13 @@ export function Hero() {
               <ArrowRight width={14} height={14} />
             </a>
           </div>
+          <p className="hero__lede">
+            Senior backend engineer with seven years across AI systems and distributed systems. I
+            design and build services, APIs and data pipelines — asynchronous processing, strict
+            validation and explicit business rules — for products in healthcare, sport and
+            operations. What follows is an honest record of the work, the engineering decisions
+            behind it, and the evidence behind each claim.
+          </p>
           <div className="hero__links">
             <a className="arrow-link" href={site.github}>
               GitHub
@@ -350,21 +318,6 @@ export function Hero() {
               Email
               <ArrowUpRight width={13} height={13} />
             </a>
-          </div>
-          <div className="hero__index">
-            <p className="hero__index-label">Selected work</p>
-            <ol className="hero__index-list" role="list">
-              {selectedWork.map((item) => (
-                <li key={item.id}>
-                  <a className="hero__index-link" href={`#${item.id}`}>
-                    <span className="hero__index-num">{item.num}</span>
-                    <span className="hero__index-name">{item.name}</span>
-                    <span className="hero__index-line">{item.line}</span>
-                    <ArrowUpRight className="hero__index-arrow" width={12} height={12} />
-                  </a>
-                </li>
-              ))}
-            </ol>
           </div>
         </div>
 

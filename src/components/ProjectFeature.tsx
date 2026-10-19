@@ -2,7 +2,6 @@ import type { EvidenceArtifact, Project, ProjectMedia } from '../data/projects';
 import { asset } from '../lib/asset';
 import { Disclosure } from './Disclosure';
 import { ArrowUpRight, Expand } from './icons';
-import { StackGroups } from './StackGroups';
 
 function byId(media: ProjectMedia[], id: string): ProjectMedia {
   const found = media.find((m) => m.id === id);
@@ -214,6 +213,30 @@ function Evidence({ evidence }: { evidence: EvidenceArtifact }) {
 }
 
 /* ------------------------------------------------------------------ */
+/* The record header's fact strip — same data as the gallery's stack    */
+/* groups, stated once, where scanning starts.                          */
+/* ------------------------------------------------------------------ */
+
+function RecordFacts({ project }: { project: Project }) {
+  const rows = [
+    { label: 'Languages', items: project.languages },
+    { label: 'Technologies', items: project.technologies },
+    { label: 'Areas', items: project.areas },
+  ].filter((row) => row.items.length > 0);
+
+  return (
+    <dl className="record-facts">
+      {rows.map((row) => (
+        <div className="record-fact" key={row.label}>
+          <dt>{row.label}</dt>
+          <dd>{row.items.join(' · ')}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /* A single featured project                                           */
 /* ------------------------------------------------------------------ */
 
@@ -240,6 +263,7 @@ export function ProjectFeature({ project, reversed, onOpen }: ProjectFeatureProp
           <h3 className="project__title">{project.title}</h3>
           <p className="project__tagline">{project.tagline}</p>
         </div>
+        <RecordFacts project={project} />
       </div>
 
       <div className={`split split--work${reversed ? ' is-reversed' : ''}`}>
@@ -272,9 +296,6 @@ export function ProjectFeature({ project, reversed, onOpen }: ProjectFeatureProp
               />
             </>
           )}
-
-          <h4 className="project__subhead">Stack &amp; focus areas</h4>
-          <StackGroups project={project} />
 
           {project.external && (
             <div className="project__actions">
