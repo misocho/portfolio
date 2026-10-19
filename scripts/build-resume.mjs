@@ -61,6 +61,7 @@ const contact = [
   [esc(cv.phone), `tel:${cv.phone.replace(/[^+\d]/g, '')}`],
   ['github.com/misocho', cv.github],
   ['linkedin.com/in/brian-moranga', cv.linkedin],
+  ['misocho.github.io/portfolio', cv.portfolio],
 ];
 
 const contactHtml = contact
