@@ -163,7 +163,7 @@ export const enkaai: Project = {
     },
   ],
   mediaNote:
-    'EnkaAI interface — prototype/beta build with demo data (no customer information).',
+    'Prototype/beta build with demo data (no customer information).',
   technical: [
     {
       title: 'Deterministic rules around AI extraction',
@@ -195,10 +195,10 @@ export const enkaai: Project = {
       'The same guarantee covers inbound supplier messages: a message is persisted before the webhook is acknowledged, so a retry is a no-op rather than a second record.',
       'Import correctness and idempotency are exercised by a focused backend suite — 32 tests across the import engine, canonical and invoice imports, and inbound idempotency (last run October 2026).',
     ],
-    note: 'A simplified description of the approach — not a production trace or a live dataset.',
+    note: 'A simplified description of the approach — test evidence, not a production trace.',
   },
   honestyNote:
-    'EnkaAI is in development and shown as a beta. The screens above are from the product’s own prototype/beta build and use demo data, not a live customer environment. Brian is a part-time backend engineer on the platform; the interfaces reflect the product the team is building, not the work of one person alone.',
+    'EnkaAI is in development and shown as a beta. Brian is a part-time backend engineer on the platform; the interfaces reflect the product the team is building, not the work of one person alone.',
   theme: 'enkaai',
 };
 
@@ -223,7 +223,7 @@ export const beoflow: Project = {
     'Led a Rust rewrite of the per-athlete readiness recomputation, bringing processing from seconds to milliseconds.',
   ],
   outcome:
-    'A path that once recomputed readiness in seconds now completes in milliseconds — fast enough to sit closer to real-time, without giving up correctness.',
+    'The readiness recomputation now runs close to real-time, without giving up correctness.',
   languages: ['Python', 'Rust'],
   technologies: [],
   areas: ['Asynchronous time-series processing', 'AI analytics'],
@@ -409,10 +409,9 @@ export const dorsa: Project = {
     title: 'No public artifact',
     lead: 'Dorsa publishes no dashboard screenshot and no public description of its backend, so the evidence here is the scope of the work rather than a product capture.',
     points: [
-      'Brian was backend lead within a small team of backend, hardware and junior engineers.',
+      'Brian was backend lead within a six-person team of backend, hardware, sound and junior engineers.',
       'The ~15-minute turnover figure is an internal estimate across partner hospitals over about a year, tied to the broader operational improvement — not attributed to him alone.',
     ],
-    note: 'Stated plainly rather than dressed up as a screenshot.',
   },
   honestyNote:
     "Dorsa's public site does not publish a dashboard screenshot, so none is shown. The composition on this page is illustrative and built only from Dorsa's own published illustration, hero imagery and product-suite names. See MEDIA-SOURCES.md for how to drop in a genuine screenshot.",

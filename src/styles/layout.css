@@ -15,7 +15,7 @@
 
 .section {
   position: relative;
-  padding-block: clamp(4.5rem, 3rem + 7vw, 9rem);
+  padding-block: clamp(4.5rem, 3rem + 5vw, 7rem);
 }
 
 .section + .section {
@@ -23,7 +23,7 @@
 }
 
 .section--tight {
-  padding-block: clamp(3.2rem, 2rem + 5vw, 6rem);
+  padding-block: clamp(3.2rem, 2rem + 4vw, 5rem);
 }
 
 .section--forest {
