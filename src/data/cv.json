@@ -54,7 +54,7 @@
       "period": "Jan 2021 – Oct 2023",
       "intro": "Backend systems for an AI-enabled perioperative-care platform supporting time-sensitive operating-room workflows.",
       "bullets": [
-        "Led backend engineering for an AI-enabled perioperative-care platform within a small team of backend, hardware and junior engineers.",
+        "Led backend engineering for an AI-enabled perioperative-care platform within a six-person team of backend, hardware, sound and junior engineers.",
         "Owned the backend services and APIs (including multi-tenancy), NLP and AI-enabled workflow orchestration, data processing and surgery-document ingestion, and deployments.",
         "Worked with Docker and AWS infrastructure to support deployment and operation, and contributed to the front-end web app and a Raspberry Pi device when needed.",
         "Contributed to product and workflow improvements associated with approximately 15 minutes less surgical turnover per procedure — an internal estimate across partner hospitals over about a year (a team- and product-level outcome, not attributed to one person)."

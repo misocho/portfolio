@@ -98,8 +98,8 @@ the PDF.
 The on-site CV's **Download PDF** button and the Contact section's **Résumé**
 button both download `brian-misocho-moranga-resume.pdf` through `asset()`, so
 they resolve under the configured base path. The generated `resume.html` is also
-served at `/<base>/resume.html` as a live, print-ready web CV (a copy of this
-document opened in a browser), though nothing on the site links to it.
+served at `/<base>/resume.html` as a live, print-ready web CV and is linked from
+the on-site CV as **Open print version**.
 
 ---
 

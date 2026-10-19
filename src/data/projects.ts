@@ -193,7 +193,7 @@ export const enkaai: Project = {
     points: [
       'Re-running the same import updates existing rows instead of inserting duplicates.',
       'The same guarantee covers inbound supplier messages: a message is persisted before the webhook is acknowledged, so a retry is a no-op rather than a second record.',
-      'Import correctness and idempotency are exercised by the backend test suite.',
+      'Import correctness and idempotency are exercised by a focused backend suite — 32 tests across the import engine, canonical and invoice imports, and inbound idempotency (last run October 2026).',
     ],
     note: 'A simplified description of the approach — not a production trace or a live dataset.',
   },
@@ -336,7 +336,7 @@ export const dorsa: Project = {
   summary:
     'Dorsa builds software for perioperative care — the time around surgery, where schedules shift, information is scattered, and coordination decides how a day goes. The work sits at the meeting point of backend services, AI and natural-language workflows, and cloud infrastructure that has to stay dependable.',
   contribution: [
-    'Led backend engineering for the platform within a small team of backend, hardware and junior engineers.',
+    'Led backend engineering for the platform within a six-person team of backend, hardware, sound and junior engineers.',
     'Owned the backend services and APIs (including multi-tenancy), the NLP and AI-enabled workflow orchestration, data processing and surgery-document ingestion, and deployments.',
     'Built and maintained the cloud-based services the product relies on, and contributed to the front-end web app and a Raspberry Pi device when needed.',
     'Contributed to operational improvements associated with roughly 15 minutes less turnover per procedure.',
