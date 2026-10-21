@@ -1,63 +1,48 @@
 import { useEffect, useRef, useState } from 'react';
 import { navItems } from '../data/nav';
-import { site } from '../data/site';
-import { ArrowUpRight, Close, Menu } from './icons';
 
 interface NavProps {
   activeId: string;
 }
 
+/**
+ * A quiet sticky bar that only appears once the hero has left the viewport.
+ * The hero carries its own navigation, so the bar is not needed on arrival.
+ */
 export function Nav({ activeId }: NavProps) {
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-  const drawerRef = useRef<HTMLDivElement>(null);
-  const menuBtnRef = useRef<HTMLButtonElement>(null);
-  const wasOpen = useRef(false);
+  const [visible, setVisible] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const update = () => {
+      setVisible(window.scrollY > window.innerHeight - 96);
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
   }, []);
 
   useEffect(() => {
-    const el = drawerRef.current;
-    if (open) {
-      wasOpen.current = true;
-      // `inert` removes the closed drawer from the tab order and the
-      // accessibility tree without hiding a focused element (unlike
-      // aria-hidden), which is what screen readers and browsers expect.
-      el?.removeAttribute('inert');
-      const onKey = (e: KeyboardEvent) => {
-        if (e.key === 'Escape') setOpen(false);
-      };
-      document.addEventListener('keydown', onKey);
-      // Move focus into the drawer for keyboard users.
-      const first = el?.querySelector<HTMLElement>('a, button');
-      first?.focus();
-      return () => document.removeEventListener('keydown', onKey);
+    const header = headerRef.current;
+    if (!header) return;
+    if (visible) {
+      header.removeAttribute('inert');
+      header.removeAttribute('aria-hidden');
+    } else {
+      header.setAttribute('inert', '');
+      header.setAttribute('aria-hidden', 'true');
     }
-    el?.setAttribute('inert', '');
-    // Return focus to the toggle when the drawer closes.
-    if (wasOpen.current) {
-      wasOpen.current = false;
-      menuBtnRef.current?.focus();
-    }
-  }, [open]);
+  }, [visible]);
 
   return (
-    <header className={`nav${scrolled ? ' nav--scrolled' : ''}`}>
-      <div className="container nav__inner">
-        <a
-          className="nav__lockup"
-          href="#top"
-          aria-label={`Back to top — Field Notes by ${site.name}`}
-        >
-          <span className="nav__mark">Field Notes</span>
-          <span className="nav__edition" aria-hidden="true">
-            {site.name}
-          </span>
+    <header className={`nav${visible ? ' nav--visible' : ''}`} ref={headerRef}>
+      <div className="shell nav__inner">
+        <a className="nav__mark" href="#top" aria-label="Brian Misocho — back to top">
+          BM
         </a>
 
         <nav aria-label="Primary">
@@ -76,67 +61,9 @@ export function Nav({ activeId }: NavProps) {
           </ul>
         </nav>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          {site.availability && (
-            <span className="nav__status">
-              <span className="nav__status-dot" aria-hidden="true" />
-              {site.availability}
-            </span>
-          )}
-          <button
-            ref={menuBtnRef}
-            type="button"
-            className="nav__menu"
-            aria-expanded={open}
-            aria-controls="site-menu"
-            onClick={() => setOpen(true)}
-          >
-            <Menu width={14} height={14} />
-            Menu
-          </button>
-        </div>
-      </div>
-
-      <div
-        id="site-menu"
-        className="nav__drawer"
-        data-open={open ? 'true' : 'false'}
-        ref={drawerRef}
-      >
-        <div className="nav__drawer-top">
-          <span className="label">Field Notes — Contents</span>
-          <button
-            type="button"
-            className="nav__menu"
-            onClick={() => setOpen(false)}
-            aria-label="Close menu"
-          >
-            <Close width={14} height={14} />
-            Close
-          </button>
-        </div>
-        <nav aria-label="Sections">
-          <ul className="nav__drawer-list">
-            {navItems.map((item, i) => (
-              <li key={item.id}>
-                <a
-                  className="nav__drawer-link"
-                  href={`#${item.id}`}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                  <span className="idx">{String(i + 1).padStart(2, '0')}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="nav__drawer-foot">
-          <a className="arrow-link" href={`mailto:${site.email}`} onClick={() => setOpen(false)}>
-            {site.email}
-            <ArrowUpRight width={13} height={13} />
-          </a>
-        </div>
+        <a className="nav__cta" href="#contact">
+          Contact
+        </a>
       </div>
     </header>
   );

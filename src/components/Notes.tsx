@@ -6,46 +6,46 @@ export function Notes() {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <section className="section" id="notes">
-      <div className="container">
+    <section className="section section--acid" id="notes">
+      <div className="shell">
         <SectionMasthead
-          num="03"
-          label="Notes"
-          title="How I like to work."
-          deck="Short notes on the judgment calls behind the code — the engineering thinking that does not fit neatly on a résumé."
-          minor
+          title="How I work"
+          note="Four judgment calls behind the code — the thinking that does not fit on a résumé."
         />
 
-        <div className="grid-notes">
+        <div className="notes">
           {notes.map((note) => {
             const isOpen = openId === note.id;
             const panelId = `note-panel-${note.id}`;
             const buttonId = `note-button-${note.id}`;
 
             return (
-              <div className="note" key={note.id} data-reveal data-open={isOpen}>
+              <div className="fold" key={note.id} data-open={isOpen}>
                 <button
                   type="button"
-                  className="note__summary"
+                  className="fold__summary"
                   id={buttonId}
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   onClick={() => setOpenId(isOpen ? null : note.id)}
                 >
-                  <span className="note__idx">{note.index}</span>
-                  <span className="note__title">{note.title}</span>
-                  <span className="note__sign" aria-hidden="true" />
+                  <span className="fold__title">{note.title}</span>
+                  <span className="fold__sign" aria-hidden="true" />
                 </button>
                 <div
-                  className="note__body"
+                  className="fold__body"
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  hidden={!isOpen}
+                  aria-hidden={!isOpen}
                 >
-                  {note.paragraphs.map((p) => (
-                    <p key={p}>{p}</p>
-                  ))}
+                  <div className="fold__body-inner">
+                    <div className="fold__pad">
+                      {note.paragraphs.map((p) => (
+                        <p key={p}>{p}</p>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             );

@@ -1,6 +1,5 @@
 export interface EngineeringNote {
   id: string;
-  index: string;
   title: string;
   paragraphs: string[];
 }
@@ -12,7 +11,6 @@ export interface EngineeringNote {
 export const notes: EngineeringNote[] = [
   {
     id: 'async-reliability',
-    index: 'N.01',
     title: 'Making asynchronous systems reliable',
     paragraphs: [
       'Async work is where a lot of real systems quietly go wrong. When data arrives from several places and has to be processed in order, the interesting problems are not about throughput — they are about what happens when a message is late, duplicated, or arrives after you thought the window had closed.',
@@ -21,7 +19,6 @@ export const notes: EngineeringNote[] = [
   },
   {
     id: 'processing-speed',
-    index: 'N.02',
     title: 'Making processing faster without breaking correctness',
     paragraphs: [
       'Speed only counts if the answer is still right. When I have taken a slow path and made it fast — as with the Rust work on a time-series pipeline at Beoflow — the discipline was to pin down correctness first, with tests that described the expected results, and only then change how the work was done.',
@@ -30,7 +27,6 @@ export const notes: EngineeringNote[] = [
   },
   {
     id: 'understandable-apis',
-    index: 'N.03',
     title: 'Designing APIs and data models that stay understandable',
     paragraphs: [
       'A data model is a promise about how the system will behave later. The clearest systems I have worked on were the ones where the shape of the data said something true about the domain, so that a new engineer could reason about edge cases without being told.',
@@ -39,7 +35,6 @@ export const notes: EngineeringNote[] = [
   },
   {
     id: 'ai-where-it-helps',
-    index: 'N.04',
     title: 'Using AI where it adds value',
     paragraphs: [
       'In healthcare and operations settings, AI is most useful when it reduces the work of reading and coordinating — extracting structure from messy text, drafting, routing, surfacing what matters. It is least useful when it is asked to make a decision that someone will later have to defend.',

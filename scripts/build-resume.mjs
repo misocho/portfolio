@@ -32,14 +32,12 @@ const dataUri = (rel) => {
 
 /* ---- inlined @font-face ---------------------------------------------- */
 const faces = [
-  ['Inter', 400, 'node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2'],
-  ['Inter', 500, 'node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2'],
-  ['Inter', 600, 'node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2'],
-  ['Newsreader', 400, 'node_modules/@fontsource/newsreader/files/newsreader-latin-400-normal.woff2'],
-  ['Newsreader', 500, 'node_modules/@fontsource/newsreader/files/newsreader-latin-500-normal.woff2'],
-  ['Newsreader', 600, 'node_modules/@fontsource/newsreader/files/newsreader-latin-600-normal.woff2'],
-  ['IBM Plex Mono', 400, 'node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2'],
-  ['IBM Plex Mono', 500, 'node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2'],
+  ['Big Shoulders Display', 600, 'node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-600-normal.woff2'],
+  ['Big Shoulders Display', 700, 'node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-700-normal.woff2'],
+  ['Public Sans', 400, 'node_modules/@fontsource/public-sans/files/public-sans-latin-400-normal.woff2'],
+  ['Public Sans', 500, 'node_modules/@fontsource/public-sans/files/public-sans-latin-500-normal.woff2'],
+  ['Public Sans', 600, 'node_modules/@fontsource/public-sans/files/public-sans-latin-600-normal.woff2'],
+  ['Public Sans', 700, 'node_modules/@fontsource/public-sans/files/public-sans-latin-700-normal.woff2'],
 ];
 
 const fontFaces = faces

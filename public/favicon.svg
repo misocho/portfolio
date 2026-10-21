@@ -1,12 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Field Notes monogram">
-  <rect width="64" height="64" rx="6" fill="#F3EFE6"/>
-  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="5.25" fill="none" stroke="#D7D0C3" stroke-width="1.5"/>
-  <g fill="none" stroke="#A6533A" stroke-width="3" stroke-linecap="round">
-    <path d="M20 46V18"/>
-    <path d="M20 18h22"/>
-    <path d="M20 31h15"/>
-  </g>
-  <g fill="#292D28">
-    <rect x="44" y="42" width="4" height="4"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="BM — Brian Misocho">
+  <rect width="64" height="64" fill="#FE7141"/>
+  <path fill="#111111" fill-rule="evenodd" d="M7 15H23C29 15 33 18.2 33 24C33 27.6 31 30.1 28 31.5C31.6 33 33.5 35.8 33.5 39.5C33.5 45.5 29 49 22 49H7V15ZM13 21V29H22C25.5 29 27 27.4 27 25C27 22.6 25.5 21 22 21H13ZM13 35V43H22.5C26 43 27.5 41.4 27.5 39C27.5 36.6 26 35 22.5 35H13Z"/>
+  <path fill="#111111" d="M36 49V15H43L47.5 32L52 15H59V49H53V26L48 41H45L40 26V49H36Z"/>
+  <rect x="7" y="54" width="50" height="3" fill="#111111"/>
 </svg>

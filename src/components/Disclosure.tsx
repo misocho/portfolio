@@ -7,10 +7,9 @@ export interface DisclosureItem {
 }
 
 /**
- * A set of independently-collapsible explanations. Reuses the Engineering
- * notes accordion styles (`.note`), so behaviour, focus and reduced-motion
- * handling stay consistent with the rest of the site. Multiple panels may be
- * open at once.
+ * Independently-collapsible technical notes. The public page and the image
+ * gallery share the same fold behaviour: a real button, a visible expanded
+ * state, and a panel that is removed from the accessibility tree when closed.
  */
 export function Disclosure({ items, label }: { items: DisclosureItem[]; label: string }) {
   const [openIds, setOpenIds] = useState<Set<string>>(() => new Set());
@@ -28,35 +27,38 @@ export function Disclosure({ items, label }: { items: DisclosureItem[]; label: s
 
   return (
     <div className="disclosure" aria-label={label}>
-      {items.map((item, i) => {
+      {items.map((item) => {
         const isOpen = openIds.has(item.id);
         const panelId = `disc-panel-${item.id}`;
         const buttonId = `disc-button-${item.id}`;
 
         return (
-          <div className="note" key={item.id} data-open={isOpen}>
+          <div className="fold" key={item.id} data-open={isOpen}>
             <button
               type="button"
-              className="note__summary"
+              className="fold__summary"
               id={buttonId}
               aria-expanded={isOpen}
               aria-controls={panelId}
               onClick={() => toggle(item.id)}
             >
-              <span className="note__idx">{String(i + 1).padStart(2, '0')}</span>
-              <span className="note__title">{item.title}</span>
-              <span className="note__sign" aria-hidden="true" />
+              <span className="fold__title">{item.title}</span>
+              <span className="fold__sign" aria-hidden="true" />
             </button>
             <div
-              className="note__body"
+              className="fold__body"
               id={panelId}
               role="region"
               aria-labelledby={buttonId}
-              hidden={!isOpen}
+              aria-hidden={!isOpen}
             >
-              {item.paragraphs.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
+              <div className="fold__body-inner">
+                <div className="fold__pad">
+                  {item.paragraphs.map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         );

@@ -1,8 +1,8 @@
 /* =========================================================================
-   layout.css — containers, section rhythm, editorial grids
+   layout.css — shell, section rhythm, section heads, the 12-column grid
    ========================================================================= */
 
-.container {
+.shell {
   width: 100%;
   max-width: var(--maxw);
   margin-inline: auto;
@@ -11,131 +11,113 @@
 
 .section {
   position: relative;
-  padding-block: clamp(4.5rem, 3rem + 5vw, 7rem);
+  scroll-margin-top: 5rem;
+  padding-block: clamp(5rem, 3rem + 7vw, 9rem);
 }
 
-.section + .section {
-  border-top: 1px solid var(--border);
+.section--white {
+  background: var(--paper);
+  color: var(--ink);
 }
 
-.section--tight {
-  padding-block: clamp(3.2rem, 2rem + 4vw, 5rem);
+.section--surface {
+  background: var(--surface);
+  color: var(--ink);
 }
 
-.section--forest {
-  background: var(--forest);
-  color: var(--paper);
+.section--sage {
+  background: var(--sage);
+  color: var(--ink);
 }
 
-.section--forest a {
-  color: var(--rust-bright);
+.section--acid {
+  background: var(--acid);
+  color: var(--ink);
 }
 
-.section--forest .label {
-  color: var(--sage-dim);
+.section--black {
+  background: var(--black);
+  color: var(--on-black);
 }
 
-/* ---- Section masthead --------------------------------------------- */
-.masthead {
+.section--black ::selection {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+/* ---- Section head -------------------------------------------------- */
+.section-head {
   display: grid;
-  gap: var(--space-s);
-  margin-bottom: clamp(2.4rem, 1.6rem + 3vw, 4.2rem);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  align-items: end;
+  margin-bottom: clamp(2.5rem, 1.5rem + 4vw, 5.5rem);
 }
 
-.masthead__index {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-s);
+.section-head__title {
+  grid-column: 1 / span 7;
+  margin: 0;
+  font-size: var(--display-md);
+  line-height: var(--lh-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-wrap: balance;
 }
 
-.masthead__num {
-  font-family: var(--font-mono);
-  font-size: var(--step--1);
-  letter-spacing: 0.14em;
-  color: var(--rust-text);
-}
-
-.masthead__title {
-  font-size: var(--step-3);
-  max-width: 20ch;
-}
-
-.masthead__deck {
-  max-width: var(--measure);
+.section-head__note {
+  grid-column: 9 / -1;
+  margin: 0;
   color: var(--muted);
-  font-size: var(--step-1);
-  line-height: 1.45;
+  font-size: var(--text-lg);
+  line-height: 1.35;
+  max-width: 34ch;
+  text-wrap: pretty;
 }
 
-/* Supporting sections sit a level below the primary (Featured work). */
-.masthead--minor {
-  margin-bottom: clamp(1.8rem, 1.2rem + 2vw, 3rem);
+.section--sage .section-head__note,
+.section--acid .section-head__note {
+  color: var(--ink);
 }
 
-.masthead--minor .masthead__title {
-  font-size: var(--step-2);
-  max-width: 24ch;
+.section--black .section-head__note {
+  color: var(--on-black-muted);
 }
 
-.masthead--minor .masthead__deck {
-  font-size: var(--step-0);
-}
-
-.section--forest .masthead__deck {
-  color: var(--sage-dim);
-}
-
-/* ---- Two-column editorial split ----------------------------------- */
-.split {
+/* ---- Grid helpers -------------------------------------------------- */
+.grid-12 {
   display: grid;
-  gap: clamp(1.6rem, 1rem + 4vw, 4.5rem);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
 }
 
-@media (min-width: 900px) {
-  .split--work {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-    align-items: center;
+.measure {
+  max-width: var(--measure);
+}
+
+.measure-narrow {
+  max-width: var(--measure-narrow);
+}
+
+@media (max-width: 900px) {
+  .section-head {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
   }
 
-  .split--work.is-reversed {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  .section-head__title,
+  .section-head__note {
+    grid-column: 1 / -1;
   }
 
-  .split--work.is-reversed .split__text {
-    order: 2;
+  .section-head__title {
+    max-width: 16ch;
   }
 
-  .split--work.is-reversed .split__media {
-    order: 1;
+  .section-head__note {
+    max-width: 44ch;
   }
-}
 
-.stack > * + * {
-  margin-top: var(--space-s);
-}
-
-/* ---- Grids --------------------------------------------------------- */
-.grid-notes {
-  display: grid;
-  gap: var(--space-m);
-}
-
-@media (min-width: 760px) {
-  .grid-notes {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.timeline {
-  display: grid;
-  gap: 0;
-}
-
-@media (min-width: 820px) {
-  .grid-about {
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: clamp(2rem, 1rem + 5vw, 5rem);
-    align-items: start;
+  .grid-12 {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

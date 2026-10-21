@@ -37,10 +37,7 @@ export interface EvidenceArtifact {
 
 export interface Project {
   id: string;
-  index: string;
   name: string;
-  category: string;
-  kicker: string;
   title: string;
   tagline: string;
   summary: string;
@@ -83,10 +80,7 @@ const DORSA_CREDIT: MediaCredit = {
 
 export const enkaai: Project = {
   id: 'enkaai',
-  index: '01',
   name: 'EnkaAI',
-  category: 'AI procurement & operations · Backend engineering',
-  kicker: 'Featured project · 01',
   title: 'EnkaAI',
   tagline: 'Making fragmented operations easier to manage.',
   summary:
@@ -208,10 +202,7 @@ export const enkaai: Project = {
 
 export const beoflow: Project = {
   id: 'beoflow',
-  index: '02',
   name: 'Beoflow',
-  category: 'Sports technology · Backend engineering',
-  kicker: 'Featured project · 02',
   title: 'Beoflow',
   tagline: 'Turning dense performance data into something a coach can act on.',
   summary:
@@ -327,10 +318,7 @@ export const beoflow: Project = {
 
 export const dorsa: Project = {
   id: 'dorsa',
-  index: '03',
   name: 'Dorsa AI',
-  category: 'Healthcare technology · Backend leadership',
-  kicker: 'Featured project · 03',
   title: 'Dorsa AI',
   tagline: 'Helping operating-room teams coordinate work that cannot wait.',
   summary:

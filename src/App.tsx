@@ -1,11 +1,10 @@
 import { AboutExperience } from './components/AboutExperience';
-import { Contact, Footer } from './components/Contact';
-import { Cv } from './components/Cv';
+import { Contact } from './components/Contact';
+import { Evidence } from './components/Evidence';
 import { Hero } from './components/Hero';
 import { InsideTheBuild } from './components/InsideTheBuild';
 import { Nav } from './components/Nav';
 import { Notes } from './components/Notes';
-import { ProgressIndicator } from './components/ProgressIndicator';
 import { Skills } from './components/Skills';
 import { WorkSection } from './components/WorkSection';
 import { navItems } from './data/nav';
@@ -22,20 +21,16 @@ export function App() {
 
   return (
     <>
-      <ProgressIndicator />
       <Nav activeId={activeId} />
       <main id="main">
         <Hero />
         <WorkSection />
         <InsideTheBuild />
+        <Evidence />
         <Notes />
         <AboutExperience />
         <Skills />
-        <Cv />
-        <section className="section section--forest" id="contact">
-          <Contact />
-          <Footer />
-        </section>
+        <Contact />
       </main>
     </>
   );

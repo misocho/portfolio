@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import type { Project, ProjectMedia } from '../data/projects';
 import { useLockBodyScroll } from '../hooks/useLockBodyScroll';
 import { ArrowUpRight, ChevronLeft, ChevronRight, Close } from './icons';
-import { StackGroups } from './StackGroups';
 
 interface LightboxProps {
   project: Project;
@@ -40,7 +39,7 @@ export function Lightbox({ project, media, index, onNavigate, onClose }: Lightbo
 
     // Mark every branch outside the dialog inert as we walk up to #root, so
     // the background leaves the tab order and the accessibility tree while
-    // the modal is open. `aria-modal` alone is not enough for all readers.
+    // the modal is open.
     const inertNodes: Element[] = [];
     let node: Element | null = dialogRef.current;
     while (node?.parentElement) {
@@ -110,7 +109,6 @@ export function Lightbox({ project, media, index, onNavigate, onClose }: Lightbo
     >
       <div className="lightbox__top">
         <p className="lightbox__title" id="lightbox-title">
-          <span className="idx">{project.index}</span>
           {project.name} — image {currentIndex + 1} of {count}
         </p>
         <button type="button" className="lightbox__close" onClick={onClose}>
@@ -133,10 +131,7 @@ export function Lightbox({ project, media, index, onNavigate, onClose }: Lightbo
           )}
 
           <figure className="lightbox__figure" key={current.id}>
-            <div
-              className="lightbox__img-wrap"
-              style={{ aspectRatio: `${current.width} / ${current.height}` }}
-            >
+            <div className="lightbox__img-wrap">
               <img
                 src={current.src}
                 width={current.width}
@@ -145,9 +140,7 @@ export function Lightbox({ project, media, index, onNavigate, onClose }: Lightbo
               />
             </div>
             <figcaption className="lightbox__caption">
-              <span className="lightbox__badge" data-kind={current.kind}>
-                {BADGE_LABEL[current.kind]}
-              </span>
+              <span className="lightbox__badge">{BADGE_LABEL[current.kind]}</span>
               <span>{current.caption}</span>
               {current.credit && (
                 <a
@@ -155,7 +148,6 @@ export function Lightbox({ project, media, index, onNavigate, onClose }: Lightbo
                   href={current.credit.href}
                   target="_blank"
                   rel="noreferrer noopener"
-                  style={{ marginTop: 0 }}
                 >
                   {current.credit.label}
                   <ArrowUpRight width={12} height={12} />
@@ -177,46 +169,16 @@ export function Lightbox({ project, media, index, onNavigate, onClose }: Lightbo
         </div>
 
         <aside className="lightbox__side">
-          <p className="kicker">{project.category}</p>
-          <h3>{project.title}</h3>
+          <h3>{project.name}</h3>
+          <p>{project.tagline}</p>
 
           <div className="lightbox__block">
-            <h4>Problem</h4>
-            <p>{project.summary}</p>
-          </div>
-
-          <div className="lightbox__block">
-            <h4>My contribution</h4>
+            <h4>What I built</h4>
             <ul>
-              {project.contribution.map((c) => (
-                <li key={c}>{c}</li>
+              {project.contribution.slice(0, 3).map((item) => (
+                <li key={item}>{item}</li>
               ))}
             </ul>
-          </div>
-
-          <div className="lightbox__block">
-            <h4>Evidence and outcome</h4>
-            <p>{project.outcome}</p>
-            {project.evidence && (
-              <>
-                <p>
-                  <strong>{project.evidence.title}.</strong> {project.evidence.lead}
-                </p>
-                <ul>
-                  {project.evidence.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-                {project.evidence.note && (
-                  <p className="lightbox__disclaimer">{project.evidence.note}</p>
-                )}
-              </>
-            )}
-          </div>
-
-          <div className="lightbox__block">
-            <h4>Stack &amp; focus areas</h4>
-            <StackGroups project={project} />
           </div>
 
           {project.external && (

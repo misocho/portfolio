@@ -1,23 +1,20 @@
 import type { ReactNode } from 'react';
 
 interface SectionMastheadProps {
-  num: string;
-  label: string;
   title: ReactNode;
-  deck?: ReactNode;
-  /** Renders a lighter, supporting masthead for secondary sections. */
-  minor?: boolean;
+  note?: ReactNode;
+  reveal?: boolean;
 }
 
-export function SectionMasthead({ num, label, title, deck, minor = false }: SectionMastheadProps) {
+/**
+ * The section head: a display-scale title and, where it earns its place, one
+ * short line of context. No section numbers, no eyebrow labels.
+ */
+export function SectionMasthead({ title, note, reveal = true }: SectionMastheadProps) {
   return (
-    <header className={`masthead${minor ? ' masthead--minor' : ''}`} data-reveal>
-      <div className="masthead__index">
-        <span className="masthead__num">{num}</span>
-        <span className="label">{label}</span>
-      </div>
-      <h2 className="masthead__title">{title}</h2>
-      {deck && <p className="masthead__deck">{deck}</p>}
+    <header className="section-head" data-reveal={reveal ? '' : undefined}>
+      <h2 className="section-head__title">{title}</h2>
+      {note && <p className="section-head__note">{note}</p>}
     </header>
   );
 }

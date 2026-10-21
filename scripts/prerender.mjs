@@ -46,13 +46,13 @@ const html = template.replace(marker, `<div id="root">${appHtml}</div>`);
 // A few strings that must appear in the initial HTML. If any are missing the
 // prerender is broken and the build should stop.
 const required = [
-  'Notes from the', // hero heading
-  'Brian Misocho', // author byline — hero and nav identity
+  'Brian Misocho', // hero and footer identity
   'EnkaAI',
   'Beoflow',
   'Dorsa AI',
+  'The evidence',
   'Experience', // about/experience subhead
-  'Skills',
+  'Tools',
   'Education',
   'Contact',
 ];

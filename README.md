@@ -1,10 +1,10 @@
 # Field Notes — Portfolio of Brian Misocho Morang'a
 
-An editorial portfolio built around a **FIELD NOTES** concept — a vintage
-engineering journal. Warm paper, ink, a single rust accent, and a forest-green
-counterpoint. The writing is deliberately honest: it shows what Brian worked
-on, within the wider teams that shipped the products, and never invents
-screenshots, metrics or features.
+A type-led engineering portfolio built around **FIELD NOTES** — one orange
+field, black ink, and oversized Big Shoulders Display, with Public Sans carrying
+the reading. The writing is deliberately honest: it shows what Brian worked on,
+within the wider teams that shipped the products, and never invents screenshots,
+metrics or features.
 
 Built with **Vite 5 + React 18 + TypeScript**, self-hosted fonts, and no
 animation libraries. It exports to a fully static site for GitHub Pages.
@@ -57,9 +57,9 @@ details, professional summary, roles (with intro and bullets), skills and
 education. Everything else is generated from it, so the website and the paperwork
 can never drift apart:
 
-- **On-site CV** — the `#cv` section (`src/components/Cv.tsx`) renders the
-  essentials from `cv.json` — contact, professional summary, skills and
-  education — and points to the PDF for the full role-by-role history.
+- **On-site experience** — `#about` renders the professional summary, roles
+  and education from `cv.json`; `#skills` renders the technical skills. The
+  full role-by-role history lives in the PDF and the print version.
 - **Printable CV** — `public/resume.html`, a self-contained, on-brand A4 document.
 - **Downloadable PDF** — `public/brian-misocho-moranga-resume.pdf`.
 
@@ -95,11 +95,9 @@ graphics). With headless Chromium:
 detailed than the printed CV — kept for reference. It is no longer the source of
 the PDF.
 
-The on-site CV's **Download PDF** button and the Contact section's **Résumé**
-button both download `brian-misocho-moranga-resume.pdf` through `asset()`, so
-they resolve under the configured base path. The generated `resume.html` is also
-served at `/<base>/resume.html` as a live, print-ready web CV and is linked from
-the on-site CV as **Open print version**.
+The Contact section links to both `CV (PDF) ↓` and `Print version`; both resolve
+through `asset()`, so they work under the configured base path. The generated
+`resume.html` is served at `/<base>/resume.html` as a live, print-ready web CV.
 
 ---
 
@@ -213,7 +211,8 @@ Run this before (and after) pushing to `main`:
 
 ```
 src/
-  components/     UI: Nav, Hero, WorkSection, ProjectFeature, Lightbox, Cv, …
+  components/     UI: Nav, Hero, WorkSection, ProjectFeature, InsideTheBuild,
+                  Evidence, Notes, AboutExperience, Skills, Contact, Lightbox, …
   data/           Content: cv.json (CV source of truth), site, projects, experience, skills, notes, nav
   hooks/          useReveal, useScrollSpy, useReducedMotion, useLockBodyScroll
   lib/asset.ts    Resolves /public paths against Vite's base
@@ -268,15 +267,14 @@ instructions for dropping in a genuine Dorsa screenshot when one is cleared for
 use. The placeholder entry (`dorsa-placeholder` in `src/data/projects.ts`) is
 designed to look intentional until then.
 
-Featured work leads with **EnkaAI** (`01`), then Beoflow (`02`) and Dorsa (`03`).
+Featured work leads with **EnkaAI**, then Beoflow and Dorsa.
 
 ---
 
 ## Accessibility & performance
 
 - Semantic landmarks, a skip link, and visible focus rings throughout (the
-  gallery's dark surface swaps the rust ring for a paper one so it stays
-  legible).
+  dark contact field swaps the orange ring for a light one so it stays legible).
 - The image gallery is a proper modal dialog: focus is trapped and restored,
   `Escape` closes, arrow keys navigate, body scroll is locked, and the rest of
   the page is marked `inert` while it is open.

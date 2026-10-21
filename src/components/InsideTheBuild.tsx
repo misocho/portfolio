@@ -1,140 +1,107 @@
+import { enkaai } from '../data/projects';
+import { Disclosure } from './Disclosure';
 import { SectionMasthead } from './SectionMasthead';
 
-const mono = { fontFamily: 'var(--font-mono)' } as const;
-
-const loopStages = ['Observe', 'Reason', 'Recommend', 'Execute', 'Verify'];
-
-/**
- * The real governing loop from EnkaAI's backend: observe → reason (behind a
- * constraint gate) → recommend → execute (behind an approval gateway) → verify,
- * with every step audited. Drawn from the product's own documented rules.
- */
-function GovernedLoop() {
-  const y = 150;
-  const xs = [52, 136, 220, 304, 388];
-
-  return (
-    <svg
-      viewBox="0 0 440 300"
-      role="img"
-      aria-label="The EnkaAI governed loop: observe, reason, recommend, execute and verify. A constraint gate runs before scoring, an approval gateway runs before any consequential action, and every step is written to an audit trail."
-    >
-      <defs>
-        <pattern id="loop-grid" width="22" height="22" patternUnits="userSpaceOnUse">
-          <path d="M22 0H0V22" fill="none" style={{ stroke: 'var(--dorsa-grid)' }} strokeWidth={0.75} />
-        </pattern>
-        <marker id="loop-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
-          <path d="M0 0 L6 3 L0 6" fill="none" style={{ stroke: 'var(--ink)' }} strokeWidth={1} />
-        </marker>
-      </defs>
-
-      <rect x="0" y="0" width="440" height="300" fill="url(#loop-grid)" />
-
-      <text x="16" y="26" fontSize="10" letterSpacing="1.6" style={{ ...mono, fill: 'var(--ink)' }}>
-        GOVERNED LOOP
-      </text>
-      <text x="424" y="26" fontSize="9" letterSpacing="1.4" textAnchor="end" style={{ ...mono, fill: 'var(--rust-text)' }}>
-        FIG. B
-      </text>
-
-      {/* connector line */}
-      <line x1={xs[0]} y1={y} x2={xs[4]} y2={y} style={{ stroke: 'var(--ink)' }} strokeWidth={1.4} markerEnd="url(#loop-arrow)" />
-
-      {/* nodes */}
-      {xs.map((x, i) => (
-        <g key={loopStages[i]}>
-          <circle
-            cx={x}
-            cy={y}
-            r="15"
-            fill="var(--paper)"
-            style={{ stroke: i === 3 ? 'var(--rust)' : 'var(--forest)' }}
-            strokeWidth={i === 3 ? 2 : 1.5}
-          />
-          <text x={x} y={y + 4} fontSize="11" textAnchor="middle" style={{ ...mono, fill: 'var(--ink)' }}>
-            {String(i + 1).padStart(2, '0')}
-          </text>
-          <text x={x} y={y + 34} fontSize="9.5" textAnchor="middle" style={{ ...mono, fill: 'var(--muted)' }}>
-            {loopStages[i].toUpperCase()}
-          </text>
-        </g>
-      ))}
-
-      {/* constraint gate — before scoring */}
-      <line
-        x1={(xs[0] + xs[1]) / 2}
-        y1={y - 30}
-        x2={(xs[0] + xs[1]) / 2}
-        y2={y - 16}
-        style={{ stroke: 'var(--rust)' }}
-        strokeWidth={1}
-        strokeDasharray="3 3"
-      />
-      <text x={(xs[0] + xs[1]) / 2} y={y - 38} fontSize="8.5" textAnchor="middle" style={{ ...mono, fill: 'var(--rust-text)' }}>
-        CONSTRAINT GATE
-      </text>
-
-      {/* approval gateway — before consequential execution */}
-      <line
-        x1={(xs[2] + xs[3]) / 2}
-        y1={y - 30}
-        x2={(xs[2] + xs[3]) / 2}
-        y2={y - 16}
-        style={{ stroke: 'var(--rust)' }}
-        strokeWidth={1}
-        strokeDasharray="3 3"
-      />
-      <text x={(xs[2] + xs[3]) / 2} y={y - 38} fontSize="8.5" textAnchor="middle" style={{ ...mono, fill: 'var(--rust-text)' }}>
-        APPROVAL GATEWAY
-      </text>
-
-      {/* annotations */}
-      <text x="16" y="228" fontSize="9.5" style={{ ...mono, fill: 'var(--muted)' }}>
-        Engines own the math — the model only narrates.
-      </text>
-      <text x="16" y="248" fontSize="9.5" style={{ ...mono, fill: 'var(--muted)' }}>
-        No consequential action executes without a person.
-      </text>
-      <text x="16" y="268" fontSize="9.5" style={{ ...mono, fill: 'var(--muted)' }}>
-        Every step is written to a durable audit trail.
-      </text>
-    </svg>
-  );
-}
+const stages = [
+  {
+    name: 'Observe',
+    note: 'Operational data, documents and messages arrive from the systems already in use.',
+  },
+  {
+    name: 'Reason',
+    note: 'Extraction runs against a schema and explicit constraints. The model proposes; the rules decide.',
+  },
+  {
+    name: 'Recommend',
+    note: 'The system prepares an action with the reasoning a person needs to judge it.',
+  },
+  {
+    name: 'Execute',
+    note: 'Consequential actions wait at an approval gateway. Low-risk work stays automatic.',
+  },
+  {
+    name: 'Verify',
+    note: 'Every step is written to a durable audit trail, so a result can be traced back.',
+  },
+];
 
 export function InsideTheBuild() {
+  const approval = enkaai.media.find((m) => m.id === 'approvals') ?? enkaai.media[0];
+
   return (
-    <section className="section section--tight" id="workshop">
-      <div className="container">
-        <SectionMasthead
-          num="02"
-          label="System design"
-          title="How EnkaAI keeps AI accountable."
-          deck="The part of the system least visible in a screenshot: how a recommendation becomes an accountable action."
-        />
-        <div className="workshop">
-          <div data-reveal>
-            <p className="project__body">
+    <section className="section section--sage" id="workshop">
+      <div className="shell">
+        <SectionMasthead title="The governed loop" note="The model suggests. The rules decide." />
+
+        <div className="loop">
+          <div className="loop__intro" data-reveal>
+            <p>
               EnkaAI is built so AI helps with the messy parts — reading documents and supplier
               messages — without ever holding the pen on a decision that costs money. Extraction
-              is a suggestion; explicit business rules decide. Anything consequential waits for a
-              person, and every step is written down.
+              is a suggestion; explicit business rules decide.
             </p>
-            <p className="project__body">
+            <p>
               The loop below is the shape of that: observe, reason under constraints, recommend,
-              execute only with approval, then verify. It is the part of the system least visible
-              in a screenshot, and the part that matters most in operations.
+              execute only with approval, then verify.
             </p>
-            <p className="workshop__status">
-              <span className="dot" aria-hidden="true" />
-              Beta — in development with testing customers.
-            </p>
+            <p className="loop__status">Beta — in development with testing customers.</p>
           </div>
 
-          <figure className="workshop__figure" data-reveal>
-            <GovernedLoop />
-          </figure>
+          <div className="loop__words" data-reveal>
+            <figure className="loop__specimen">
+              <p className="loop__word" aria-hidden="true">
+                <span>Extract</span>
+              </p>
+              <figcaption className="loop__caption">The model suggests</figcaption>
+            </figure>
+            <figure className="loop__specimen">
+              <p className="loop__word" aria-hidden="true">
+                <span>Decide</span>
+              </p>
+              <figcaption className="loop__caption">The rules decide</figcaption>
+            </figure>
+          </div>
         </div>
+
+        <ol className="loop__stages">
+          {stages.map((stage) => (
+            <li className="loop__stage" key={stage.name} data-reveal>
+              <span className="loop__stage-name">{stage.name}</span>
+              <span className="loop__stage-note">{stage.note}</span>
+            </li>
+          ))}
+        </ol>
+
+        <div className="loop__evidence">
+          <figure className="loop__figure" data-reveal>
+            <img
+              src={approval.src}
+              alt={approval.alt}
+              width={approval.width}
+              height={approval.height}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>{approval.caption}</figcaption>
+          </figure>
+          <div className="loop__evidence-text" data-reveal>
+            <h3>What the gate looks like</h3>
+            <p>
+              A recommendation is shown with the price, reliability and urgency behind it, then
+              waits for a person to approve, reject or defer. The model supplies the reading; the
+              operator supplies the decision.
+            </p>
+          </div>
+        </div>
+
+        <Disclosure
+          label="EnkaAI technical notes"
+          items={enkaai.technical?.map((item, i) => ({
+            id: `enkaai-loop-${i}`,
+            title: item.title,
+            paragraphs: item.paragraphs,
+          })) ?? []}
+        />
       </div>
     </section>
   );
