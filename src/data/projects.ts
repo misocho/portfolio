@@ -41,6 +41,8 @@ export interface Project {
   title: string;
   tagline: string;
   summary: string;
+  /** Brian's role on the product, stated as it is in the CV. */
+  role: string;
   contribution: string[];
   outcome: string;
   /** Concrete programming languages. */
@@ -85,6 +87,7 @@ export const enkaai: Project = {
   tagline: 'Making fragmented operations easier to manage.',
   summary:
     'Procurement work scatters across spreadsheets, email, supplier documents, inventory systems and existing business software. EnkaAI is an AI-enabled procurement and operations platform that brings purchasing, supplier interactions and operational data into one controlled process — without asking an organisation to replace the systems it already runs.',
+  role: 'Part-time backend engineer',
   contribution: [
     'Design and build backend services and APIs with Python, FastAPI, PostgreSQL and Docker, including data models for suppliers, purchase orders, invoices and operational exceptions.',
     'Implemented strict validation and normalization of imported operational data, with LLM-assisted extraction sitting behind deterministic business rules.',
@@ -207,6 +210,7 @@ export const beoflow: Project = {
   tagline: 'Turning dense performance data into something a coach can act on.',
   summary:
     'Beoflow gives coaches an overview of how a whole squad is preparing for an event, and gives each athlete a clear picture of their own readiness, load and recovery. The hard part is not collecting the data — it is processing a stream of it fast enough, and reliably enough, to be trusted at the moment a decision is made.',
+  role: 'Backend engineer',
   contribution: [
     'Built and maintained backend services for the platform as part of a wider engineering team.',
     'Worked on asynchronous, time-series processing so performance data stays current under load.',
@@ -323,6 +327,7 @@ export const dorsa: Project = {
   tagline: 'Helping operating-room teams coordinate work that cannot wait.',
   summary:
     'Dorsa builds software for perioperative care — the time around surgery, where schedules shift, information is scattered, and coordination decides how a day goes. The work sits at the meeting point of backend services, AI and natural-language workflows, and cloud infrastructure that has to stay dependable.',
+  role: 'Backend lead',
   contribution: [
     'Led backend engineering for the platform within a six-person team of backend, hardware, sound and junior engineers.',
     'Owned the backend services and APIs (including multi-tenancy), the NLP and AI-enabled workflow orchestration, data processing and surgery-document ingestion, and deployments.',

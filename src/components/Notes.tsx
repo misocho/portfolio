@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { notes } from '../data/notes';
+import { noteRoute, routeHref } from '../data/routes';
 import { SectionMasthead } from './SectionMasthead';
 
 export function Notes() {
@@ -44,6 +45,16 @@ export function Notes() {
                       {note.paragraphs.map((p) => (
                         <p key={p}>{p}</p>
                       ))}
+                      {noteRoute(note.id) && (
+                        <a
+                          className="fold__more"
+                          href={routeHref(noteRoute(note.id)?.path ?? '/notes/')}
+                          tabIndex={isOpen ? 0 : -1}
+                          aria-hidden={!isOpen}
+                        >
+                          Read the full note <span aria-hidden="true">→</span>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

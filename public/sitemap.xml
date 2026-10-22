@@ -2,5 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://misocho.github.io/portfolio/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://misocho.github.io/portfolio/work/enkaai/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://misocho.github.io/portfolio/work/beoflow/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://misocho.github.io/portfolio/work/dorsa-ai/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://misocho.github.io/portfolio/notes/async-reliability/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://misocho.github.io/portfolio/notes/processing-speed/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://misocho.github.io/portfolio/notes/understandable-apis/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://misocho.github.io/portfolio/notes/ai-where-it-helps/</loc>
+    <lastmod>2026-10-22</lastmod>
   </url>
 </urlset>

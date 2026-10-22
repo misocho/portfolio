@@ -1,4 +1,5 @@
 import type { Project } from '../data/projects';
+import { projectRoute, routeHref } from '../data/routes';
 import { Disclosure } from './Disclosure';
 import { ArrowUpRight } from './icons';
 
@@ -141,6 +142,12 @@ export function ProjectFeature({ project, priority, onOpen }: ProjectFeatureProp
             >
               {project.external.label}
               <ArrowUpRight width={13} height={13} />
+            </a>
+          )}
+
+          {projectRoute(project.id) && (
+            <a className="project__case-link" href={routeHref(projectRoute(project.id)?.path ?? '/work/')}>
+              Read the full case study <span aria-hidden="true">→</span>
             </a>
           )}
         </div>

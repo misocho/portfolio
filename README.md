@@ -6,6 +6,9 @@ the reading. The writing is deliberately honest: it shows what Brian worked on,
 within the wider teams that shipped the products, and never invents screenshots,
 metrics or features.
 
+The site includes the home page, three project case studies, and four full
+notes, all pre-rendered as separate static routes.
+
 Built with **Vite 5 + React 18 + TypeScript**, self-hosted fonts, and no
 animation libraries. It exports to a fully static site for GitHub Pages.
 
@@ -101,32 +104,47 @@ through `asset()`, so they work under the configured base path. The generated
 
 ---
 
-## Static pre-rendering
+## Routes and static pre-rendering
 
-The site is a single-page React app, but the production build **pre-renders**
-it so the shipped `index.html` already contains the page's content. Without
-this, non-JS consumers (search crawlers, link unfurlers, text extractors) would
-see only an empty `<div id="root">`.
+The public routes are defined once in `src/data/routes.ts`:
+
+```
+/                                  home
+/work/enkaai/                      project case study
+/work/beoflow/                     project case study
+/work/dorsa-ai/                    project case study
+/notes/async-reliability/          note
+/notes/processing-speed/           note
+/notes/understandable-apis/        note
+/notes/ai-where-it-helps/          note
+```
+
+The production build **pre-renders every route** so each shipped `index.html`
+already contains its page content and route-specific metadata. Without this,
+non-JS consumers (search crawlers, link unfurlers, text extractors) would see
+only an empty `<div id="root">`.
 
 How it works (`npm run build`):
 
 1. `vite build` → the client bundle and `dist/index.html`.
 2. `vite build --ssr src/entry-server.tsx` → a small Node bundle built from the
    same `App`/components (`dist-ssr/`).
-3. `node scripts/prerender.mjs` → renders that bundle with `react-dom/server`,
-   injects the markup into `dist/index.html`, and **fails the build** if the
-   expected content is missing.
+3. `node scripts/prerender.mjs` → renders each route with `react-dom/server`,
+   writes `dist/<route>/index.html`, updates title/description/canonical/OG/
+   Twitter/theme-color metadata, injects JSON-LD, regenerates
+   `dist/sitemap.xml`, and **fails the build** if expected content is missing.
 
-In the browser, `src/main.tsx` **hydrates** the pre-rendered markup (falling
-back to a plain client render in `npm run dev`). No runtime server is involved
-— the output is still fully static.
+In the browser, `src/main.tsx` **hydrates** the matching pre-rendered route
+(falling back to a plain client render in `npm run dev`). No runtime server is
+involved — the output is still fully static.
 
 ---
 
 ## Crawlability (robots.txt & sitemap.xml)
 
 `public/robots.txt` and `public/sitemap.xml` are copied to the site at build
-time.
+time. The source sitemap lists the home page, three case studies and four notes;
+`npm run build` regenerates `dist/sitemap.xml` from the same route manifest.
 
 > **GitHub Pages project sites:** crawlers look for the host-level
 > `https://<user>.github.io/robots.txt`, which belongs to GitHub and cannot be
@@ -190,17 +208,20 @@ VITE_BASE=/my-repo/ npm run build
 Run this before (and after) pushing to `main`:
 
 1. **Gate locally** — `npm run typecheck && npm run lint && npm run build`.
-   The build pre-renders into `dist/index.html` and **fails** if required content
-   is missing.
+   The build pre-renders every route and **fails** if required content is
+   missing.
 2. **Push to `main`** — `.github/workflows/deploy.yml` runs the same gate, then
    deploys. Record the Actions **run ID**.
 3. **Verify live** at `https://misocho.github.io/portfolio/`:
-   - `200` on `/`, `robots.txt`, `sitemap.xml`, `og-image.jpg`, `favicon.svg`,
-     `resume.pdf`, `resume.html`, `404.html`.
-   - Page **hydrates** (interactive nav, notes, gallery) with **no console
-     errors or hydration warnings**.
+   - `200` on `/`, `/work/enkaai/`, `/work/beoflow/`, `/work/dorsa-ai/`,
+     `/notes/async-reliability/`, `/notes/processing-speed/`,
+     `/notes/understandable-apis/`, `/notes/ai-where-it-helps/`,
+     `robots.txt`, `sitemap.xml`, route OG images, `favicon.svg`, `resume.pdf`,
+     `resume.html`, `404.html`.
+   - Each route **hydrates** (interactive nav, replay, gallery) with **no
+     console errors or hydration warnings**.
    - `robots.txt` allows crawlers and points at `/portfolio/sitemap.xml`.
-   - Canonical/OG/Twitter tags match the deployed URL.
+   - Canonical/OG/Twitter/JSON-LD metadata match each deployed route.
 
 > The site is a GitHub Pages **project** site, so the actionable `robots.txt`
 > lives at `/portfolio/robots.txt`; the host-root file belongs to GitHub.
@@ -212,29 +233,33 @@ Run this before (and after) pushing to `main`:
 ```
 src/
   components/     UI: Nav, Hero, WorkSection, ProjectFeature, InsideTheBuild,
-                  Evidence, Notes, AboutExperience, Skills, Contact, Lightbox, …
-  data/           Content: cv.json (CV source of truth), site, projects, experience, skills, notes, nav
+                  Evidence, Notes, AboutExperience, Skills, Contact, Lightbox,
+                  PageChrome, ProjectPage, NotePage, ImportReplay, …
+  data/           Content: cv.json (CV source of truth), routes, site, projects,
+                  experience, skills, notes, nav
   hooks/          useReveal, useScrollSpy, useReducedMotion, useLockBodyScroll
   lib/asset.ts    Resolves /public paths against Vite's base
   lib/analytics.ts   Optional Umami Cloud analytics (no-op without an ID)
-  entry-server.tsx   Build-time render entry for pre-rendering
+  entry-server.tsx   Build-time render entry; exports routes and render(path)
   main.tsx        Client entry: hydrates the pre-rendered markup
   vite-env.d.ts   Typed import.meta.env (VITE_UMAMI_*)
-  styles/         tokens → base → layout → components → print
+  styles/         tokens → base → layout → components → pages → print
 scripts/
   build-resume.mjs   cv.json + template → public/resume.html (no dependencies)
-  prerender.mjs      Renders the SSR bundle into dist/index.html
+  prerender.mjs      Renders every route and writes dist/sitemap.xml
 resume/
   resume.template.html   Branded A4 template (with content markers)
 public/
   resume.html     Generated printable CV (self-contained; do not edit by hand)
   brian-misocho-moranga-resume.pdf   Downloadable PDF (printed from resume.html)
   robots.txt      Crawl rules + sitemap reference
-  sitemap.xml     Single-page sitemap
+  sitemap.xml     Home, case studies and notes
   media/enkaai/   Prototype screenshots (own work; demo/fixture data only)
   media/beoflow/  Published Beoflow imagery
   media/dorsa/    Published Dorsa imagery + product-suite icons
-  og-image.jpg    Social preview (1200×630)
+  og-image.jpg    Home social preview (1200×630)
+  og-enkaai.jpg  og-beoflow.jpg  og-dorsa-ai.jpg
+  og-note-*.jpg  Route social previews (1200×630)
   favicon.svg     404.html  .nojekyll
 resume.md         Full prose master for the résumé (reference, not the PDF source)
 .env.example      Sample environment variables (no secrets)

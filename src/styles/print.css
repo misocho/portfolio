@@ -168,3 +168,196 @@
     transform: none !important;
   }
 }
+
+/* =========================================================================
+   Standalone project and note pages
+   ========================================================================= */
+@media print {
+  .page-top {
+    border-bottom: 1px solid #111;
+  }
+
+  .page-top__inner {
+    min-height: 0;
+    padding-block: 0.25rem 0.5rem;
+  }
+
+  .page-top__mark {
+    font-size: 16pt;
+  }
+
+  .page-top__nav,
+  .page-next,
+  .case-gallery,
+  .replay {
+    display: none !important;
+  }
+
+  .case-hero,
+  .note-hero {
+    padding-block: 1rem;
+    background: #fff !important;
+    color: #111 !important;
+    border-bottom: 1px solid #111;
+    break-inside: avoid;
+  }
+
+  .case-hero__title,
+  .note-hero__title {
+    margin-bottom: 0.8rem;
+    font-size: 32pt;
+    line-height: 0.9;
+  }
+
+  .case-hero__stage,
+  .case-hero__facts,
+  .case-grid,
+  .note-grid {
+    display: block;
+  }
+
+  .case-hero__tagline,
+  .case-hero__summary,
+  .case-heading,
+  .case-copy,
+  .note-lede,
+  .note-body,
+  .note-related__heading,
+  .note-related__body {
+    max-width: none;
+    grid-column: auto;
+  }
+
+  .case-hero__tagline {
+    font-size: 16pt;
+  }
+
+  .case-hero__summary,
+  .case-lead-text {
+    font-size: 10.5pt;
+  }
+
+  .case-hero__facts {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #111;
+  }
+
+  .case-hero__facts dt {
+    margin-top: 0.4rem;
+  }
+
+  .case-hero__facts dd {
+    max-width: none;
+  }
+
+  .case-lead img,
+  .case-lead__portrait img {
+    max-height: 190pt;
+    object-fit: contain;
+  }
+
+  .case-lead--portrait {
+    padding-block: 0.5rem;
+  }
+
+  .case-lead__portrait {
+    display: block;
+  }
+
+  .case-lead__aside {
+    max-width: none;
+    margin-top: 0.75rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #111;
+  }
+
+  .case-caption {
+    padding-block: 0.35rem;
+    border-bottom: 1px solid #111;
+  }
+
+  .case-section,
+  .note-article,
+  .note-related {
+    padding-block: 0.8rem;
+    background: #fff !important;
+    border-top: 1px solid #111;
+    break-inside: auto;
+  }
+
+  .case-heading,
+  .note-related__heading {
+    margin-bottom: 0.5rem;
+    font-size: 16pt;
+  }
+
+  .case-outcome,
+  .note-lede {
+    font-size: 14pt;
+  }
+
+  .case-outcome mark,
+  .note-hero mark {
+    background: transparent;
+    color: #111;
+  }
+
+  .case-subhead {
+    font-size: 13pt;
+  }
+
+  .case-list,
+  .case-detail,
+  .case-fineprint,
+  .note-related {
+    break-inside: avoid;
+  }
+
+  .case-list li {
+    padding-block: 0.35rem;
+    border-bottom: 1px solid #111;
+  }
+
+  .note-body p {
+    margin-bottom: 0.75em;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  .note-related__link {
+    max-width: none;
+    font-size: 16pt;
+    border-bottom-width: 1px;
+  }
+
+  .page-close {
+    padding-block: 0.8rem 0;
+    background: #fff !important;
+    color: #111 !important;
+    break-before: page;
+  }
+
+  .page-close__inner {
+    min-height: 0;
+    gap: 1rem;
+  }
+
+  .page-close__title {
+    font-size: 20pt;
+  }
+
+  .page-close__contact p {
+    color: #444;
+    font-size: 10.5pt;
+  }
+
+  .page-close__email {
+    margin-top: 0.4rem;
+    font-size: 14pt;
+  }
+
+  .page-close .footer {
+    color: #111;
+  }
+}

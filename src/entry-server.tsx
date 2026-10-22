@@ -3,6 +3,9 @@ import { renderToString } from 'react-dom/server';
 
 import { App } from './App';
 
+export { routes, homeRoute } from './data/routes';
+export { site } from './data/site';
+
 /**
  * Build-time server entry.
  *
@@ -12,10 +15,10 @@ import { App } from './App';
  *
  * The client then hydrates this markup — see src/main.tsx.
  */
-export function render(): string {
+export function render(pathname = '/'): string {
   return renderToString(
     <StrictMode>
-      <App />
+      <App pathname={pathname} />
     </StrictMode>,
   );
 }
